@@ -47,7 +47,6 @@ public class User_GUI extends JFrame{
 		
 		
 		InfoPanel.setLayout(new GridLayout(13,1,10,10));
-	    InfoPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 	    
 	    InfoPanel.add(new JLabel("User's Info")) ; 
 	    InfoPanel.add(new JLabel("Name:" + connected.getName()));
