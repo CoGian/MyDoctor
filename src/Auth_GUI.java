@@ -35,6 +35,8 @@ public class Auth_GUI extends JFrame{
 		LoginPanel.add(PasswordLogField);
 		LoginPanel.add(LoginButton);
 		
+		RegisterPanel.setLayout(new GridLayout(7,1,10,50));
+		
 		this.setContentPane(panel);
        	this.getContentPane().add(LoginPanel);
 		this.setSize(800,500);
