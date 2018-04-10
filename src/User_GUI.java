@@ -25,7 +25,7 @@ public class User_GUI extends JFrame{
 	private JTextField TelephoneField  ; 
 	
 	
-	public User_GUI(User connected)
+	public User_GUI(Patient connected)
 	{
 		
 		

@@ -1,13 +1,15 @@
+import java.util.ArrayList;
 
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		String[] cities = {"Athens" , "Thessaloniki" , "Patra" };
+		ArrayList<Doctor> doctors = new ArrayList<Doctor>();
 		
-		User someone = new  Patient("1313131","LOL@GMAIL","GIORGOS","PAPADOPOULOS",25,false,"6982222611") ; 
-		
-		new User_GUI(someone) ;
+		Patient patient = new  Patient("1313131","LOL@GMAIL","GIORGOS","PAPADOPOULOS",25,false,"6982222611" , "1") ; 
+		Doctor doctor = new Doctor ("13121312","LOL@GMAIL.com","MARIOS","PANAGIWTOPOULOS",43,false,"6982223333" , "0","Thessaloniki");
+		new User_GUI(patient) ;
 		new Auth_GUI();
 	}
 
