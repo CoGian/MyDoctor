@@ -21,7 +21,7 @@ public class User_GUI extends JFrame{
 	
 	
 	private JTextField EmailField  ; 
-	private JTextField PasswordField  ; 
+	private JPasswordField PasswordField  ; 
 	private JTextField TelephoneField  ; 
 	
 	
@@ -42,7 +42,7 @@ public class User_GUI extends JFrame{
 	 
 	    
 		EmailField = new JTextField(connected.getMail());
-		PasswordField = new JTextField();
+		PasswordField = new JPasswordField();
 		TelephoneField = new JTextField(connected.getTelephone()) ; 
 		
 		
