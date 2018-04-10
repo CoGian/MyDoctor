@@ -30,7 +30,7 @@ public class Patient_GUI extends JFrame implements ActionListener{
 		
 		user = connected ; 
 
-	    ButtonPanel.setLayout(new GridLayout(10,1,10,30));
+	    ButtonPanel.setLayout(new GridLayout(9,1,10,30));
 	    
 	  
 		ButtonPanel.add(new JLabel("Choose an option:"));
@@ -61,7 +61,10 @@ public class Patient_GUI extends JFrame implements ActionListener{
 	    InfoPanel.add(new JLabel("Password: "));
 	    InfoPanel.add(PasswordField);
 	    InfoPanel.add(new JLabel("Age: " + user.getAge()));
-	    InfoPanel.add(new JLabel("Gender: " + user.isGender()));
+	    if(user.isGender())
+	    	InfoPanel.add(new JLabel("Gender: Female" ));
+	    else
+	    	InfoPanel.add(new JLabel("Gender: Male" ));
 	    InfoPanel.add(new JLabel("Telephone: " ));
 	    InfoPanel.add(TelephoneField); 
 	    InfoPanel.add(ChangeButton) ; 
