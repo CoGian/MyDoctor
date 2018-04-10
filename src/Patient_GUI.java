@@ -5,7 +5,7 @@ import javax.swing.*;
 
 
 
-public class User_GUI extends JFrame implements ActionListener{
+public class Patient_GUI extends JFrame implements ActionListener{
 	
 	private JPanel panel = new JPanel(); 
 	private JPanel InfoPanel = new JPanel() ; 
@@ -24,7 +24,7 @@ public class User_GUI extends JFrame implements ActionListener{
 	private JTextField TelephoneField  ; 
 	private Patient user ; 
 	
-	public User_GUI(Patient connected) 
+	public Patient_GUI(Patient connected) 
 	{
 		
 		
