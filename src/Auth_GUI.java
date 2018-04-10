@@ -27,7 +27,7 @@ public class Auth_GUI extends JFrame{
 	private JComboBox GenderField = new JComboBox(genders);
 	
 	public Auth_GUI() {
-		LoginPanel.setLayout(new GridLayout(5,1));
+		LoginPanel.setLayout(new GridLayout(11,1));
 		
 		LoginPanel.add(new JLabel("Username:"));
 		LoginPanel.add(UsernameLogField);

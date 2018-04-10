@@ -11,7 +11,7 @@ public class Patient {
 	
 	public Patient(String amka, String mail, String name, String surname, int age, boolean gender, String telephone,
 			String password) {
-		super();
+		
 		this.amka = amka;
 		this.mail = mail;
 		this.name = name;

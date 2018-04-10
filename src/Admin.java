@@ -11,7 +11,7 @@ public class Admin{
 	private String password;
 	public Admin(String amka, String mail, String name, String surname, int age, boolean gender, String telephone,
 			String password) {
-		super();
+		
 		this.amka = amka;
 		this.mail = mail;
 		this.name = name;
@@ -21,6 +21,55 @@ public class Admin{
 		this.telephone = telephone;
 		this.password = password;
 	}
+	public String getAmka() {
+		return amka;
+	}
+	public void setAmka(String amka) {
+		this.amka = amka;
+	}
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSurname() {
+		return surname;
+	}
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public boolean isGender() {
+		return gender;
+	}
+	public void setGender(boolean gender) {
+		this.gender = gender;
+	}
+	public String getTelephone() {
+		return telephone;
+	}
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 
+   
 }
