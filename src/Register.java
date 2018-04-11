@@ -10,4 +10,8 @@ public class Register {
 	public void addDoctor() {
 		
 	}
+	
+	public Object authentication(String username, String password) {
+		return new Patient(username,"test@mydoctor.com","Example","User",25,false,"801-MY-DOCTOR" , password);
+	}
 }
