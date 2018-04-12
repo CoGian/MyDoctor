@@ -31,13 +31,13 @@ public class Auth_GUI extends JFrame implements ActionListener{
 	public Auth_GUI() {
 		LoginPanel.setLayout(new BoxLayout(LoginPanel, BoxLayout.PAGE_AXIS));
 				
-		LoginPanel.add(Box.createRigidArea(new Dimension(0,10)));
+		LoginPanel.add(Box.createRigidArea(new Dimension(0,120)));
 		LoginPanel.add(new JLabel("Username:"));
 		LoginPanel.add(Box.createHorizontalGlue());
 		LoginPanel.add(UsernameLogField);
 		LoginPanel.add(new JLabel("Password:"));
 		LoginPanel.add(PasswordLogField);
-		LoginPanel.add(Box.createRigidArea(new Dimension(0,10)));
+		LoginPanel.add(Box.createRigidArea(new Dimension(0,120)));
 		LoginPanel.add(LoginButton);
 		LoginPanel.add(Box.createRigidArea(new Dimension(0,10)));
 		
@@ -67,10 +67,11 @@ public class Auth_GUI extends JFrame implements ActionListener{
 		this.getContentPane().setLayout(new BoxLayout(this.getContentPane(), BoxLayout.X_AXIS));
 		this.getContentPane().add(Box.createRigidArea(new Dimension(10,0)));
 		this.getContentPane().add(LoginPanel);
-		this.getContentPane().add(Box.createRigidArea(new Dimension(20,0)));
+		this.getContentPane().add(Box.createRigidArea(new Dimension(10,0)));
+		this.getContentPane().add(new JSeparator(SwingConstants.VERTICAL));
+		this.getContentPane().add(Box.createRigidArea(new Dimension(10,0)));
 		this.getContentPane().add(RegisterPanel);
 		this.getContentPane().add(Box.createRigidArea(new Dimension(10,0)));
-		this.setSize(470,400);
 		this.setVisible(true);
 		this.pack();
 		this.setTitle("LOGIN GUI");
