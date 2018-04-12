@@ -91,7 +91,7 @@ public class Patient_GUI extends JFrame implements ActionListener{
 		SignOutButton.addActionListener(this);
 		this.setSize(500,500);
 		this.setVisible(true);
-		this.setTitle("USER GUI");
+		this.setTitle("Patient GUI");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
