@@ -16,7 +16,7 @@ public class Patient_GUI extends JFrame implements ActionListener{
 	private JButton SeeAppointmentsButton = new JButton("See Appointments") ; 
 	private JButton MakeReviewButton = new JButton("Make Review") ; 
 	private JButton SeeRescriptionsButton = new JButton("See Rescriptions") ; 
-	private JButton ChangeButton = new JButton("Change" ) ; 
+	private JButton ConfigureButton = new JButton("Configure" ) ; 
 	private JButton SignOutButton = new JButton("Sign out") ; 
 	
 	private JTextField EmailField  ; 
@@ -44,13 +44,13 @@ public class Patient_GUI extends JFrame implements ActionListener{
 		ButtonPanel.add(new JLabel("  "));
 	 
 	    
-		EmailField = new JTextField(user.getMail());
-		PasswordField = new JPasswordField(user.getPassword());
-		TelephoneField = new JTextField(user.getTelephone()) ; 
+		EmailField = new JTextField(user.getMail(),20);
+		PasswordField = new JPasswordField(user.getPassword(),20);
+		TelephoneField = new JTextField(user.getTelephone(),20) ; 
 		
 		
 		InfoPanel.setLayout(new GridLayout(13,1,10,10));
-	    InfoPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+	   
 	    
 	    InfoPanel.add(new JLabel("User's Info")) ; 
 	    InfoPanel.add(new JLabel("Name:" + user.getName()));
@@ -67,24 +67,29 @@ public class Patient_GUI extends JFrame implements ActionListener{
 	    	InfoPanel.add(new JLabel("Gender: Male" ));
 	    InfoPanel.add(new JLabel("Telephone: " ));
 	    InfoPanel.add(TelephoneField); 
-	    InfoPanel.add(ChangeButton) ; 
+	    InfoPanel.add(ConfigureButton) ; 
 	    
 	       
 	    
 	    
 	    
 		this.setContentPane(panel);
-       	this.getContentPane().setLayout(new GridLayout(1, 2,30,0));
+       	this.getContentPane().setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+       	this.getContentPane().add(Box.createRigidArea(new Dimension(10,0)));
        	this.getContentPane().add(ButtonPanel);
-		this.getContentPane().add(InfoPanel);
+       	this.getContentPane().add(Box.createRigidArea(new Dimension(10,0)));
+    	this.getContentPane().add(new JSeparator(SwingConstants.VERTICAL));
+    	
+    	this.getContentPane().add(InfoPanel);
+    	this.getContentPane().add(Box.createRigidArea(new Dimension(10,0)));
 		
 		MakeAppointmentButton.addActionListener(this);
 		MakeReviewButton.addActionListener(this);
 		SeeAppointmentsButton.addActionListener(this);
 		SeeRescriptionsButton.addActionListener(this);
-		ChangeButton.addActionListener(this);
+		ConfigureButton.addActionListener(this);
 		SignOutButton.addActionListener(this);
-		this.setSize(800,500);
+		this.setSize(500,500);
 		this.setVisible(true);
 		this.setTitle("USER GUI");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -111,11 +116,12 @@ public class Patient_GUI extends JFrame implements ActionListener{
 		{
 			dispose() ; 
 		}
-		else if(e.getSource().equals(ChangeButton)) 
+		else if(e.getSource().equals(ConfigureButton)) 
 		{
 			user.setPassword(PasswordField.getText());
 			user.setMail(EmailField.getText());
 			user.setTelephone(TelephoneField.getText());
+			JOptionPane.showMessageDialog(panel,"Saved" );
 			
 		}
 		else 
