@@ -93,6 +93,7 @@ public class Patient_GUI extends JFrame implements ActionListener{
 		this.setVisible(true);
 		this.setTitle("Patient GUI");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		centreWindow(this);
 	}
 
 
@@ -130,6 +131,13 @@ public class Patient_GUI extends JFrame implements ActionListener{
 			dispose(); 
 		}
 		
+	}
+	
+	public static void centreWindow(Window frame) {
+	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+	    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+	    int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+	    frame.setLocation(x, y);
 	}
 
 	

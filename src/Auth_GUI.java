@@ -76,7 +76,7 @@ public class Auth_GUI extends JFrame implements ActionListener{
 		this.pack();
 		this.setTitle("LOGIN GUI");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		centreWindow(this);
 		LoginButton.addActionListener(this);
 		RegisterButton.addActionListener(this);
 	}
@@ -92,5 +92,12 @@ public class Auth_GUI extends JFrame implements ActionListener{
 				dispose();
 			}
 		}
+	}
+	
+	public static void centreWindow(Window frame) {
+	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+	    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+	    int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+	    frame.setLocation(x, y);
 	}
 }
