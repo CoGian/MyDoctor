@@ -25,10 +25,10 @@ public class MakeAppointment_GUI extends JFrame{
 	//buttons
 	
 	
-	private JButton Search_Button = new JButton ("Search");
-	private JButton Show_Hours_btn = new JButton("Show Hours");
-	private JButton Informat_btn = new JButton ("Information");
-	private JButton Make_Appoint = new JButton ("Make the Appointment");
+	private JButton SearchButton = new JButton ("Search");
+	private JButton Show_HoursButton = new JButton("Show Hours");
+	private JButton InformationButton = new JButton ("Information");
+	private JButton Make_AppointmentButton = new JButton ("Make the Appointment");
 	
 	// jlists ,deafultmodels
 	private DefaultListModel<String> DDoctors = new DefaultListModel<String>();
@@ -57,7 +57,7 @@ public class MakeAppointment_GUI extends JFrame{
 		Search_Panel.add(Specialisation_list);
 		
 
-		Search_Panel.add(Search_Button);
+		Search_Panel.add(SearchButton);
 		
 		//result_panel.
 		Result_Panel.setLayout(new GridLayout(1,1000));
@@ -98,16 +98,16 @@ public class MakeAppointment_GUI extends JFrame{
 		
 		BoxLayout box = new BoxLayout(test_panel,BoxLayout.Y_AXIS);
 		test_panel.setLayout(box);
-		Show_Hours_btn.setPreferredSize(new Dimension (0,80));
+		Show_HoursButton.setPreferredSize(new Dimension (0,80));
 		test_panel.add(Box.createRigidArea(new Dimension(0,20)));
-		test_panel.add(Show_Hours_btn);
+		test_panel.add(Show_HoursButton);
 		test_panel.add(Box.createRigidArea(new Dimension (0,30)));
-		test_panel.add(Informat_btn);
+		test_panel.add(InformationButton);
 		Result_Panel.add(test_panel);
 		//make the app.
-		Make_Appoint.setPreferredSize(new Dimension(450,50));
+		Make_AppointmentButton.setPreferredSize(new Dimension(450,50));
 		Make_Panel.add(Box.createRigidArea(new Dimension(0,150)));
-		Make_Panel.add(Make_Appoint);
+		Make_Panel.add(Make_AppointmentButton);
 		
 
 		
@@ -121,6 +121,7 @@ public class MakeAppointment_GUI extends JFrame{
 		this.setSize(750,500);
 		this.setVisible(true);
 		this.setTitle("APPOINTMENT GUI");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 	
