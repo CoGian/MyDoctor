@@ -87,7 +87,6 @@ public class Patient_GUI extends JFrame implements ActionListener{
 		this.setSize(800,500);
 		this.setVisible(true);
 		this.setTitle("USER GUI");
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 
@@ -97,6 +96,7 @@ public class Patient_GUI extends JFrame implements ActionListener{
 		
 		if(e.getSource().equals(MakeAppointmentButton))
 		{
+			new MakeAppointment_GUI();
 			dispose() ; 
 		}
 		else if(e.getSource().equals(SeeAppointmentsButton))

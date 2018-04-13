@@ -4,7 +4,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String[] cities = {"Athens" , "Thessaloniki" , "Patra" };
 		ArrayList<Doctor> doctors = new ArrayList<Doctor>();
 		
 		Patient patient = new  Patient("1313131","LOL@GMAIL","GIORGOS","PAPADOPOULOS",25,false,"6982222611" , "1423432") ; 
