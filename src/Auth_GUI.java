@@ -1,8 +1,9 @@
 import java.awt.*;
+import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Auth_GUI extends JFrame{
+public class Auth_GUI extends JFrame implements ActionListener{
 
 	private JPanel LoginPanel = new JPanel() ; 
 	private JPanel RegisterPanel = new JPanel() ; 
@@ -25,18 +26,24 @@ public class Auth_GUI extends JFrame{
 	String [] genders = { "Male", "Female" };
 	private JComboBox GenderField = new JComboBox(genders);
 	
+	protected Register reg = new Register();
+	
 	public Auth_GUI() {
 		LoginPanel.setLayout(new BoxLayout(LoginPanel, BoxLayout.PAGE_AXIS));
 				
+		LoginPanel.add(Box.createRigidArea(new Dimension(0,120)));
 		LoginPanel.add(new JLabel("Username:"));
 		LoginPanel.add(Box.createHorizontalGlue());
 		LoginPanel.add(UsernameLogField);
 		LoginPanel.add(new JLabel("Password:"));
 		LoginPanel.add(PasswordLogField);
+		LoginPanel.add(Box.createRigidArea(new Dimension(0,120)));
 		LoginPanel.add(LoginButton);
+		LoginPanel.add(Box.createRigidArea(new Dimension(0,10)));
 		
 		RegisterPanel.setLayout(new BoxLayout(RegisterPanel, BoxLayout.PAGE_AXIS));
 		
+		RegisterPanel.add(Box.createRigidArea(new Dimension(0,10)));
 		RegisterPanel.add(new JLabel("Username: "));
 		RegisterPanel.add(UsernameRegField);
 		RegisterPanel.add(new JLabel("Password: "));
@@ -53,16 +60,44 @@ public class Auth_GUI extends JFrame{
 		RegisterPanel.add(AgeField);
 		RegisterPanel.add(new JLabel("Gender: "));
 		RegisterPanel.add(GenderField);
+		RegisterPanel.add(Box.createRigidArea(new Dimension(0,10)));
 		RegisterPanel.add(RegisterButton);
+		RegisterPanel.add(Box.createRigidArea(new Dimension(0,10)));
 				
 		this.getContentPane().setLayout(new BoxLayout(this.getContentPane(), BoxLayout.X_AXIS));
+		this.getContentPane().add(Box.createRigidArea(new Dimension(10,0)));
 		this.getContentPane().add(LoginPanel);
-		this.getContentPane().add(Box.createRigidArea(new Dimension(20,0)));
+		this.getContentPane().add(Box.createRigidArea(new Dimension(10,0)));
+		this.getContentPane().add(new JSeparator(SwingConstants.VERTICAL));
+		this.getContentPane().add(Box.createRigidArea(new Dimension(10,0)));
 		this.getContentPane().add(RegisterPanel);
-		this.setSize(470,400);
+		this.getContentPane().add(Box.createRigidArea(new Dimension(10,0)));
 		this.setVisible(true);
 		this.pack();
 		this.setTitle("LOGIN GUI");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		centreWindow(this);
+		LoginButton.addActionListener(this);
+		RegisterButton.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource().equals(LoginButton)) {
+			Object user = new Object();
+			user = reg.authentication(UsernameLogField.getText(), PasswordLogField.getText());
+			if(user instanceof Patient) {
+				new Patient_GUI((Patient) user);
+				dispose();
+			}
+		}
+	}
+	
+	public static void centreWindow(Window frame) {
+	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+	    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+	    int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+	    frame.setLocation(x, y);
 	}
 }
