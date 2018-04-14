@@ -127,7 +127,7 @@ public class Patient_GUI extends JFrame implements ActionListener{
 		}
 		else 
 		{
-			new Auth_GUI() ; 
+			new Auth_GUI(null) ; 
 			dispose(); 
 		}
 		

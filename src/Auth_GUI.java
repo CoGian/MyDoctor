@@ -26,9 +26,11 @@ public class Auth_GUI extends JFrame implements ActionListener{
 	String [] genders = { "Male", "Female" };
 	private JComboBox GenderField = new JComboBox(genders);
 	
-	protected Register reg = new Register();
+	private Register reg;
 	
-	public Auth_GUI() {
+	public Auth_GUI(Register reg) {
+		this.reg = reg;
+		
 		LoginPanel.setLayout(new BoxLayout(LoginPanel, BoxLayout.PAGE_AXIS));
 				
 		LoginPanel.add(Box.createRigidArea(new Dimension(0,120)));
@@ -91,9 +93,18 @@ public class Auth_GUI extends JFrame implements ActionListener{
 				new Patient_GUI((Patient) user);
 				dispose();
 			}
+			else if(user instanceof Doctor) {
+				//open doctor gui
+			}
+			else {
+				//open admin gui
+			}
+		}
+		else if(e.getSource().equals(RegisterButton)) {
+			
 		}
 	}
-	
+		
 	public static void centreWindow(Window frame) {
 	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 	    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
