@@ -4,11 +4,13 @@ public class Register {
 	private ArrayList <Patient> Patients = new ArrayList<>();
 	private ArrayList <Doctor> Doctors = new ArrayList<>();
 	
-	public void addPatient() {
-		
+	String[] cities = {"Athens" , "Thessaloniki" , "Patra" };
+	
+	public void addPatient(Patient p) {
+		this.Patients.add(p);
 	}
-	public void addDoctor() {
-		
+	public void addDoctor(Doctor d) {
+		this.Doctors.add(d);
 	}
 	
 	public Object authentication(String username, String password) {
