@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Register {
+public class Registry {
 	private ArrayList <Patient> Patients = new ArrayList<>();
 	private ArrayList <Doctor> Doctors = new ArrayList<>();
 	
