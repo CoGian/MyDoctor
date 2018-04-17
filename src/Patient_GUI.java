@@ -23,12 +23,12 @@ public class Patient_GUI extends JFrame {
 	private JTextField TelephoneField  ; 
 	private Patient user ; 
 	
-	private Registry reg ; 
+	
 	
 	public Patient_GUI(Patient connected,Registry reg) 
 	{
 		
-		this.reg = reg  ; 
+
 		user = connected ; 
 
 		//commponets of Buuton panel

@@ -1,6 +1,7 @@
+import java.io.*;
 import java.util.ArrayList;
 
-public class Registry {
+public class Registry implements Serializable{
 	private ArrayList <Patient> Patients = new ArrayList<>();
 	private ArrayList <Doctor> Doctors = new ArrayList<>();
 	
@@ -13,7 +14,28 @@ public class Registry {
 		this.Doctors.add(d);
 	}
 	
-	public Object authentication(String username, String password) {
-		return new Patient(username,"test@mydoctor.com","Example","User",25,false,"801-MY-DOCTOR" , password);
-	}
+	public Object  authentication(String username, String password) {
+		
+		for(Patient patient : Patients)
+		{
+			if(patient.getAmka().equals(username))
+				if(patient.getPassword().equals(password))
+					return patient ; 	
+		}
+		
+		
+
+		for(Doctor doc : Doctors)
+		{
+			if(doc.getAmka().equals(username))
+				if(doc.getPassword().equals(password))
+					return doc ; 
+		}
+		
+		return null ;
+		
+	}	
+	
+	
+	
 }

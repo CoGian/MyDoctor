@@ -96,9 +96,12 @@ public class Auth_GUI extends JFrame implements ActionListener{
 			else if(user instanceof Doctor) {
 				//open doctor gui
 			}
-			else {
+			else if(user instanceof Admin){		
+			
 				//open admin gui
 			}
+			else
+				JOptionPane.showMessageDialog(this.getContentPane(), "Wrong Username or Password");
 		}
 		else if(e.getSource().equals(RegisterButton)) {
 			
