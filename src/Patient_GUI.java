@@ -5,14 +5,14 @@ import javax.swing.*;
 
 
 
-public class Patient_GUI extends JFrame implements ActionListener{
+public class Patient_GUI extends JFrame {
 	
 	private JPanel panel = new JPanel(); 
 	private JPanel InfoPanel = new JPanel() ; 
 	private JPanel ButtonPanel = new JPanel() ; 
 		
 	private JButton MakeAppointmentButton = new JButton("Make Appointment") ; 
-	private JButton SeeAppointmentsButton = new JButton("See Appointments") ; 
+	private JButton MyAppointmentsButton = new JButton("My Appointments") ; 
 	private JButton MakeReviewButton = new JButton("Make Review") ; 
 	private JButton SeeRescriptionsButton = new JButton("See Rescriptions") ; 
 	private JButton ConfigureButton = new JButton("Configure" ) ; 
@@ -23,10 +23,12 @@ public class Patient_GUI extends JFrame implements ActionListener{
 	private JTextField TelephoneField  ; 
 	private Patient user ; 
 	
-	public Patient_GUI(Patient connected) 
+	
+	
+	public Patient_GUI(Patient connected,Registry reg) 
 	{
 		
-		
+
 		user = connected ; 
 
 		//commponets of Buuton panel
@@ -34,7 +36,7 @@ public class Patient_GUI extends JFrame implements ActionListener{
 	    ButtonPanel.add(new JLabel("Choose an option:"));
 		
 		ButtonPanel.add(MakeAppointmentButton);
-		ButtonPanel.add(SeeAppointmentsButton);
+		ButtonPanel.add(MyAppointmentsButton);
 		ButtonPanel.add(MakeReviewButton);
 		ButtonPanel.add(SeeRescriptionsButton);
 		ButtonPanel.add(SignOutButton);
@@ -76,12 +78,69 @@ public class Patient_GUI extends JFrame implements ActionListener{
     	this.getContentPane().add(InfoPanel);
     	this.getContentPane().add(Box.createRigidArea(new Dimension(10,0)));
 		
-		MakeAppointmentButton.addActionListener(this);
-		MakeReviewButton.addActionListener(this);
-		SeeAppointmentsButton.addActionListener(this);
-		SeeRescriptionsButton.addActionListener(this);
-		ConfigureButton.addActionListener(this);
-		SignOutButton.addActionListener(this);
+		MakeAppointmentButton.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new MakeAppointment_GUI();
+				dispose() ; 
+			}
+		
+		
+		
+		}) ; 
+		
+		MakeReviewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				dispose() ; 
+			}
+		});
+		
+		MyAppointmentsButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				dispose() ; 
+			}
+		});
+		
+		
+		SeeRescriptionsButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				dispose() ; 
+			}
+		});
+		
+		ConfigureButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				user.setPassword(PasswordField.getText());
+				user.setMail(EmailField.getText());
+				user.setTelephone(TelephoneField.getText());
+				JOptionPane.showMessageDialog(panel,"Saved" );
+				
+			}
+		});
+		
+		SignOutButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new Auth_GUI(reg) ; 
+				dispose(); 
+			}
+		});
 		
 		this.setSize(500,500);
 		this.setVisible(true);
@@ -93,43 +152,6 @@ public class Patient_GUI extends JFrame implements ActionListener{
 	}
 
 
-
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-		if(e.getSource().equals(MakeAppointmentButton))
-		{
-			new MakeAppointment_GUI();
-			dispose() ; 
-		}
-		else if(e.getSource().equals(SeeAppointmentsButton))
-		{
-			dispose() ; 
-		}
-		else if(e.getSource().equals(MakeReviewButton))
-		{
-			dispose(); 
-		}
-		else if(e.getSource().equals(SeeRescriptionsButton))
-		{
-			dispose() ; 
-		}
-		else if(e.getSource().equals(ConfigureButton)) 
-		{
-			user.setPassword(PasswordField.getText());
-			user.setMail(EmailField.getText());
-			user.setTelephone(TelephoneField.getText());
-			JOptionPane.showMessageDialog(panel,"Saved" );
-			
-		}
-		else 
-		{
-			new Auth_GUI() ; 
-			dispose(); 
-		}
-		
-	}
-	
 	public static void centreWindow(Window frame) {
 	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 	    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);

@@ -9,7 +9,7 @@ public class Auth_GUI extends JFrame implements ActionListener{
 	private JPanel RegisterPanel = new JPanel() ; 
 	
 	private JButton LoginButton = new JButton("Login");
-	private JButton RegisterButton = new JButton("Register");
+	private JButton RegisterButton = new JButton("Registry");
 	
 	
 	private JTextField UsernameLogField = new JTextField(20);
@@ -26,9 +26,11 @@ public class Auth_GUI extends JFrame implements ActionListener{
 	String [] genders = { "Male", "Female" };
 	private JComboBox GenderField = new JComboBox(genders);
 	
-	protected Register reg = new Register();
+	private Registry reg;
 	
-	public Auth_GUI() {
+	public Auth_GUI(Registry reg) {
+		this.reg = reg;
+		
 		LoginPanel.setLayout(new BoxLayout(LoginPanel, BoxLayout.PAGE_AXIS));
 				
 		LoginPanel.add(Box.createRigidArea(new Dimension(0,120)));
@@ -88,12 +90,24 @@ public class Auth_GUI extends JFrame implements ActionListener{
 			Object user = new Object();
 			user = reg.authentication(UsernameLogField.getText(), PasswordLogField.getText());
 			if(user instanceof Patient) {
-				new Patient_GUI((Patient) user);
+				new Patient_GUI((Patient) user,reg);
 				dispose();
 			}
+			else if(user instanceof Doctor) {
+				//open doctor gui
+			}
+			else if(user instanceof Admin){		
+			
+				//open admin gui
+			}
+			else
+				JOptionPane.showMessageDialog(this.getContentPane(), "Wrong Username or Password");
+		}
+		else if(e.getSource().equals(RegisterButton)) {
+			
 		}
 	}
-	
+		
 	public static void centreWindow(Window frame) {
 	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 	    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);

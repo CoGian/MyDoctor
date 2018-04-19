@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class Doctor {
+public class Doctor implements Serializable{
 	private String amka;
 	private String mail;
 	private String name;
