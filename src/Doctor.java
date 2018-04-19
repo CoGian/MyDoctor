@@ -13,7 +13,6 @@ public class Doctor {
 	
 	public Doctor(String amka, String mail, String name, String surname, int age, boolean gender, String telephone,
 			String password, String cityName) {
-	
 		this.amka = amka;
 		this.mail = mail;
 		this.name = name;
