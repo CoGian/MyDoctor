@@ -80,7 +80,11 @@ public class Auth_GUI extends JFrame implements ActionListener{
 		this.pack();
 		this.setTitle("LOGIN GUI");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		centreWindow(this);
+		//centre the window
+	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+	    int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+		int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+		this.setLocation(x, y);
 		LoginButton.addActionListener(this);
 		RegisterButton.addActionListener(this);
 	}
@@ -94,8 +98,8 @@ public class Auth_GUI extends JFrame implements ActionListener{
 		if(e.getSource().equals(LoginButton)) {
 			
 			Object user = new Object();
-			user = reg.authentication(UsernameLogField.getText(), PasswordLogField.getText());
-		
+			//user = reg.authentication(UsernameLogField.getText(), PasswordLogField.getText());
+		    user = new  Patient("1313131","LOL@GMAIL","GIORGOS","PAPADOPOULOS",25,false,"6982222611" , "1423432") ;
 			if(user instanceof Patient) {
 				new Patient_GUI((Patient) user,reg);
 				dispose();
@@ -115,10 +119,5 @@ public class Auth_GUI extends JFrame implements ActionListener{
 		}
 	}
 		
-	public static void centreWindow(Window frame) {
-	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-	    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
-	    int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
-	    frame.setLocation(x, y);
-	}
+	
 }

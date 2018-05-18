@@ -1,6 +1,7 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class Patient implements Serializable{
 	private String amka;
@@ -12,8 +13,9 @@ public class Patient implements Serializable{
 	private String telephone;
 	private String password;
 	private ArrayList<Appointment> appointmentList  = new ArrayList<>()  ; 
-	private ArrayList<Doctor> doctorsList = new ArrayList<>() ; 
+	private HashMap<Doctor,Review> doctorsMap = new HashMap<>() ; 
 	private ArrayList<String> prescriptionList = new ArrayList<>() ; 
+	
 	
 	public Patient(String amka, String mail, String name, String surname, int age, boolean gender, String telephone,
 			String password) {
