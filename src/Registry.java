@@ -2,17 +2,23 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Registry implements Serializable{
-	private ArrayList <Patient> Patients = new ArrayList<>();
-	private ArrayList <Doctor> Doctors = new ArrayList<>();
+	
+	
+	public ArrayList <Patient> Patients;
+	public  ArrayList <Doctor> Doctors;
 	
 	String[] cities = {"Athens" , "Thessaloniki" , "Patra" };
 	
-	public void addPatient(Patient p) {
-		this.Patients.add(p);
+	String[] speciality = {"Cardiology" , "Surgery" , "Pathology" } ; 
+	
+	
+	public Registry() {
+		 Patients= new ArrayList<>(); ; 
+		 Doctors= new ArrayList<>(); 
 	}
-	public void addDoctor(Doctor d) {
-		this.Doctors.add(d);
-	}
+
+
+	
 	
 	public Object  authentication(String username, String password) {
 		
@@ -31,11 +37,17 @@ public class Registry implements Serializable{
 				if(doc.getPassword().equals(password))
 					return doc ; 
 		}
+		return null;
 		
-		return null ;
+		
 		
 	}	
 	
+	
+	public  ArrayList<Doctor> searchDoctor(String city, String speciality ,  String tag){
+		return  Doctors ;
+		
+	}
 	
 	
 }

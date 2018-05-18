@@ -5,6 +5,8 @@ import javax.swing.*;
 
 public class Auth_GUI extends JFrame implements ActionListener{
 
+
+	private static final long serialVersionUID = 1L;
 	private JPanel LoginPanel = new JPanel() ; 
 	private JPanel RegisterPanel = new JPanel() ; 
 	
@@ -24,7 +26,7 @@ public class Auth_GUI extends JFrame implements ActionListener{
 	private JTextField AgeField = new JTextField(20);
 	
 	String [] genders = { "Male", "Female" };
-	private JComboBox GenderField = new JComboBox(genders);
+	private JComboBox<String> GenderField = new JComboBox<String>(genders);
 	
 	private Registry reg;
 	
@@ -83,12 +85,17 @@ public class Auth_GUI extends JFrame implements ActionListener{
 		RegisterButton.addActionListener(this);
 	}
 
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		
+		
 		if(e.getSource().equals(LoginButton)) {
+			
 			Object user = new Object();
 			user = reg.authentication(UsernameLogField.getText(), PasswordLogField.getText());
+		
 			if(user instanceof Patient) {
 				new Patient_GUI((Patient) user,reg);
 				dispose();

@@ -15,10 +15,11 @@ public class Serialization {
 			i.printStackTrace();
 		}
 		finally {
-			System.out.println("Serialization Attempted...");
+			
 		}
 	}
 	
+	@SuppressWarnings("finally")
 	public static  Registry  ReadFromFile()
 	{
 		Registry reg = null ; 
@@ -37,7 +38,7 @@ public class Serialization {
 			c.printStackTrace();
 		}
 		finally {
-			System.out.println("De-Serialization Attempted...");
+			
 			return reg ;
 		}
 	}
