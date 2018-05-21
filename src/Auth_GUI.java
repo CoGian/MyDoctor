@@ -98,8 +98,8 @@ public class Auth_GUI extends JFrame implements ActionListener{
 		if(e.getSource().equals(LoginButton)) {
 			
 			Object user = new Object();
-			//user = reg.authentication(UsernameLogField.getText(), PasswordLogField.getText());
-		    user = new  Patient("1313131","LOL@GMAIL","GIORGOS","PAPADOPOULOS",25,false,"6982222611" , "1423432") ;
+			user = reg.authentication(UsernameLogField.getText(), PasswordLogField.getText());
+		    
 			if(user instanceof Patient) {
 				new Patient_GUI((Patient) user,reg);
 				dispose();
