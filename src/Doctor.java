@@ -13,15 +13,13 @@ public class Doctor implements Serializable{
 	private String password;
 	private String cityName;
 	private String tag ; 
+	private String speciality;
 	private  HashMap<Integer, Integer[]> appointmentMap = new HashMap<Integer, Integer[]>();
 	private HashMap<Patient, Integer> patientMap = new HashMap<>() ; 
 	public Doctor(String amka, String mail, String name, String surname, int age, boolean gender, String telephone,
-<<<<<<< HEAD
-			String password, String cityName) {
-=======
-			String password, String cityName,String tag) {
+
+			String password, String cityName,String tag,String speciality) {
 	
->>>>>>> de89cc8bf2e7642e232722a5aa6ad559e3f91dfe
 		this.amka = amka;
 		this.mail = mail;
 		this.name = name;
@@ -32,6 +30,7 @@ public class Doctor implements Serializable{
 		this.password = password;
 		this.cityName = cityName;
 		this.tag = tag ;
+		this.speciality = speciality;
 	}
 
 

@@ -9,7 +9,7 @@ public class Registry implements Serializable{
 	
 	String[] cities = {"Athens" , "Thessaloniki" , "Patra" };
 	
-	String[] speciality = {"Cardiology" , "Surgery" , "Pathology" } ; 
+	String[] speciality = {"Cardiology" , "Surgery" , "Pathology" , "Orthopedic"} ; 
 	
 	
 	public Registry() {
