@@ -13,7 +13,7 @@ public class Patient implements Serializable{
 	private String telephone;
 	private String password;
 	private ArrayList<Appointment> appointmentList  = new ArrayList<>()  ; 
-	private HashMap<Doctor,Review> doctorsMap = new HashMap<>() ; 
+	private ArrayList<Doctor> doctorsList = new ArrayList<>() ; 
 	private ArrayList<String> prescriptionList = new ArrayList<>() ; 
 	
 	
@@ -94,6 +94,19 @@ public class Patient implements Serializable{
 	}
 
 	
+	
+	public ArrayList<Appointment> getAppointmentList() {
+		return appointmentList;
+	}
+
+	public ArrayList<Doctor> getDoctorsList() {
+		return doctorsList;
+	}
+
+	public ArrayList<String> getPrescriptionList() {
+		return prescriptionList;
+	}
+
 	public void makeAppointment(Doctor aDoctor,Date aDate) {
 		
 	}
@@ -112,6 +125,17 @@ public class Patient implements Serializable{
     }
     
     public void addDoctor(Doctor aDoctor) {
+    	doctorsList.add(aDoctor); 
+    	aDoctor.addPatient(this);
+    }
+    
+    public Doctor searchDocInList(String FullName)
+    {
+    	for(Doctor doc : doctorsList )
+    		if(FullName.contains(doc.getName())&&FullName.contains(doc.getSurname()))
+    			return doc ; 
     	
+		return null; 
+			
     }
 }
