@@ -17,7 +17,7 @@ public class Main {
 		Doctor doctor2 = new Doctor ("13224442855","LOL@GMAIL.com","MARIOS","PANAGIWTOPOULOS",43,false,"6982223333" , "0","Thessaloniki","","Surgery");
 		Doctor doctor3 = new Doctor ("45233345111","LOL@GMAIL.com","MARIOS","PANAGIWTOPOULOS",43,false,"6982223333" , "0","Thessaloniki","Legs","Orthopedic");
 		Doctor doctor4 = new Doctor ("7634522111","LOL@GMAIL.com","MARIOS","PANAGIWTOPOULOS",43,false,"6982223333" , "0","Thessaloniki","Hands","Orthopedic");
-		
+		patient.addDoctor(doctor);
 		
 		Serialization.SaveToFile(reg);
 

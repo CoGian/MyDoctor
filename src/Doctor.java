@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -16,6 +17,9 @@ public class Doctor implements Serializable{
 	private String speciality;
 	private  HashMap<Integer, Integer[]> appointmentMap = new HashMap<Integer, Integer[]>();
 	private HashMap<Patient, Integer> patientMap = new HashMap<>() ; 
+	private ArrayList<Review> reviewList = new ArrayList<>() ; 
+	
+
 	public Doctor(String amka, String mail, String name, String surname, int age, boolean gender, String telephone,
 
 			String password, String cityName,String tag,String speciality) {
@@ -33,6 +37,20 @@ public class Doctor implements Serializable{
 		this.speciality = speciality;
 	}
 
+
+	public String getSpeciality() {
+		return speciality;
+	}
+
+
+	public HashMap<Patient, Integer> getPatientMap() {
+		return patientMap;
+	}
+
+
+	public ArrayList<Review> getReviewList() {
+		return reviewList;
+	}
 
 	public String getAmka() {
 		return amka;
@@ -167,6 +185,21 @@ public class Doctor implements Serializable{
    
    public void writePrescription(Patient aPatient,String prescription) {
 	   
+   }
+   
+   public void addReview(Review rev)
+   {
+	   boolean found = false ; 
+	   for(Review r : reviewList)
+		   if(rev.getId().equals(r.getId())) {
+			   r.setId(rev.getId());
+			   found = true ; 
+			   break; 
+		   }
+			  
+	   if(!found) {
+		   reviewList.add(rev) ; 
+	   }
    }
 
 }

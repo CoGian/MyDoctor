@@ -10,6 +10,10 @@ import javax.swing.border.TitledBorder;
 
 public class MakeReview_GUI extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel panel = new JPanel(); 
 	private JPanel DoctorListPanel = new JPanel() ; 
 	private JPanel ReviewPanel = new JPanel() ;
@@ -33,8 +37,8 @@ public class MakeReview_GUI extends JFrame {
 		DoctorListPanel.setLayout(new BoxLayout(DoctorListPanel, BoxLayout.Y_AXIS));
 		
 		doctorsJList.setModel(DDoctors);
-		DDoctors.addElement("Marinos");
-		DDoctors.addElement("Papadopoulous");
+		for(Doctor doc : user.getDoctorsList())
+			DDoctors.addElement(doc.getName() +" " + doc.getSurname());		
 		doctorPane = new JScrollPane(doctorsJList);
 	
 		TitledBorder  title = BorderFactory.createTitledBorder(
@@ -127,10 +131,12 @@ public class MakeReview_GUI extends JFrame {
 				String doctorFullName = doctorsJList.getSelectedValue(); 
 				if(Cleanliness != 0 && StaffCo_operation!= 0 && Dignity_and_respect !=0 && Involvement_in_decisions!=0 
 						&&doctorFullName!= null) {
-					
+					Review rev = new Review(user.getAmka(), Cleanliness, StaffCo_operation, Dignity_and_respect, Involvement_in_decisions);
+					Doctor  doc = user.searchDocInList(doctorFullName);
+					doc.addReview(rev);
 					JOptionPane.showMessageDialog(panel, "Your review was recorded");
 				}else
-					JOptionPane.showMessageDialog(panel, "Select all the fields to continue");
+					JOptionPane.showMessageDialog(panel, "Select doctor  to continue");
 				
 			}
 		});
