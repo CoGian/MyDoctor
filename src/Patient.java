@@ -1,4 +1,7 @@
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 
 public class Patient implements Serializable{
 	private String amka;
@@ -9,6 +12,10 @@ public class Patient implements Serializable{
 	private boolean gender;    // 0 -> male , 1-> female
 	private String telephone;
 	private String password;
+	private ArrayList<Appointment> appointmentList  = new ArrayList<>()  ; 
+	private HashMap<Doctor,Review> doctorsMap = new HashMap<>() ; 
+	private ArrayList<String> prescriptionList = new ArrayList<>() ; 
+	
 	
 	public Patient(String amka, String mail, String name, String surname, int age, boolean gender, String telephone,
 			String password) {
@@ -87,6 +94,24 @@ public class Patient implements Serializable{
 	}
 
 	
+	public void makeAppointment(Doctor aDoctor,Date aDate) {
+		
+	}
 	
+    public void cancelAppointment(Date selectedDate) {
+		
+	}
+    
+    public void configureInfo(String newPassword,String newEmail,String newTelephone) {
+    	
+    }
 	
+    public String showPrescription(String selectedPrescription) {
+		return selectedPrescription;
+    	
+    }
+    
+    public void addDoctor(Doctor aDoctor) {
+    	
+    }
 }

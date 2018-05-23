@@ -96,6 +96,7 @@ public class Patient_GUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+			    new MakeReview_GUI(user,reg) ; 
 				dispose() ; 
 			}
 		});
@@ -147,17 +148,15 @@ public class Patient_GUI extends JFrame {
 		this.setTitle("USER GUI");
 		this.setTitle("Patient GUI");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		centreWindow(this);
-
-	}
-
-
-	public static void centreWindow(Window frame) {
+		//centre the window
 	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-	    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
-	    int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
-	    frame.setLocation(x, y);
+	    int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+		int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+		this.setLocation(x, y);
+			
+
 	}
+
 
 	
 	

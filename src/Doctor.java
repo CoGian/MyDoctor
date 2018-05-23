@@ -1,4 +1,6 @@
 import java.io.Serializable;
+import java.util.Date;
+import java.util.HashMap;
 
 public class Doctor implements Serializable{
 	private String amka;
@@ -10,10 +12,16 @@ public class Doctor implements Serializable{
 	private String telephone;
 	private String password;
 	private String cityName;
-	
-	
+	private String tag ; 
+	private  HashMap<Integer, Integer[]> appointmentMap = new HashMap<Integer, Integer[]>();
+	private HashMap<Patient, Integer> patientMap = new HashMap<>() ; 
 	public Doctor(String amka, String mail, String name, String surname, int age, boolean gender, String telephone,
+<<<<<<< HEAD
 			String password, String cityName) {
+=======
+			String password, String cityName,String tag) {
+	
+>>>>>>> de89cc8bf2e7642e232722a5aa6ad559e3f91dfe
 		this.amka = amka;
 		this.mail = mail;
 		this.name = name;
@@ -23,6 +31,7 @@ public class Doctor implements Serializable{
 		this.telephone = telephone;
 		this.password = password;
 		this.cityName = cityName;
+		this.tag = tag ;
 	}
 
 
@@ -114,9 +123,51 @@ public class Doctor implements Serializable{
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
+
+
+	public String getTag() {
+		return tag;
+	}
+
+
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+
+
+	public HashMap<Integer, Integer[]> getAppointmentMap() {
+		return appointmentMap;
+	}
+
+
+	public void setAppointmentMap(HashMap<Integer, Integer[]> appointmentMap) {
+		this.appointmentMap = appointmentMap;
+	}
 	
 	
+	public void makeAppointment(Patient aPatient , Date aDate) {
+		
+	}
 	
-	
+   public void cancelAppointment(Date selectedDate) {
+		
+	}
+   
+   public void configureInfo(String newPassword,String newEmail,String newTelephone) {
+   	
+   }
+   
+   public void showHours() {
+	   
+   }
+   
+   public void addPatient(Patient aPatient) {
+	   
+   }
+   
+   
+   public void writePrescription(Patient aPatient,String prescription) {
+	   
+   }
 
 }
