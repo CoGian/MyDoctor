@@ -70,6 +70,23 @@ public class Admin{
 		this.password = password;
 	}
 	
+	
+	public void trasferDoctor(Doctor doc,Registry reg,String transfer_city) {
+		
+		doc.setCityName(transfer_city);
+			
+	}
+	
+	public Doctor searchDoctorByAMKA(String amka,Registry reg)
+	{
+		for(Doctor doc : reg.Doctors)
+			if(doc.getAmka().equals(amka))
+				return doc ; 
+			
+		
+		return null;
+		
+	}
 
    
 }
