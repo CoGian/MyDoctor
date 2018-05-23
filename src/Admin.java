@@ -87,6 +87,17 @@ public class Admin{
 		return null;
 		
 	}
+	
+	public void deleteDoctor(Doctor doc,Registry reg)
+	{
+		for(Patient key: doc.getPatientMap().keySet())
+			{
+			   key.deleteDoctor(doc);
+	
+			}
+		reg.Doctors.remove(doc) ; 
+		
+	}
 
    
 }

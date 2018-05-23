@@ -129,6 +129,15 @@ public class Patient implements Serializable{
     	aDoctor.addPatient(this);
     }
     
+    public void deleteDoctor(Doctor aDoctor){
+    	doctorsList.remove(aDoctor);
+    	
+    	for(Appointment a : appointmentList)
+    		if(a.getDoctor().equals(aDoctor))
+    			appointmentList.remove(a) ; 
+    	
+    }
+    
     public Doctor searchDocInList(String FullName)
     {
     	for(Doctor doc : doctorsList )

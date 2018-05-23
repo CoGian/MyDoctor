@@ -113,7 +113,25 @@ public class Admin_GUI extends JFrame{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
-					dispose() ; 
+					String amka =  DoctorAMKAField.getText() ; 
+					Doctor doc = admin.searchDoctorByAMKA(amka, reg) ; 
+					if(doc!= null) {
+						
+						Object[] options = {"Yes, please",
+			                    "No, thanks"};
+						int n = JOptionPane.showOptionDialog(panel,
+								"Are you sure?", "Do you want to delete " + doc.getName() +
+								doc.getSurname(),JOptionPane.YES_NO_CANCEL_OPTION,
+								JOptionPane.QUESTION_MESSAGE,null,options,  options[1]);
+						if(n==0){
+							user.deleteDoctor(doc, reg);
+							JOptionPane.showMessageDialog(panel, "Doctor Deleted") ; 
+						}
+					     
+					}
+					else
+						JOptionPane.showMessageDialog(panel, "Doctor not found");
+				
 				}
 			});
 			
