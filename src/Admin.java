@@ -1,7 +1,7 @@
 
 public class Admin{
 
-	private String amka;
+	private String username;
 	private String mail;
 	private String name;
 	private String surname;
@@ -9,10 +9,10 @@ public class Admin{
 	private boolean gender;    // 0 -> male , 1-> female
 	private String telephone;
 	private String password;
-	public Admin(String amka, String mail, String name, String surname, int age, boolean gender, String telephone,
+	public Admin(String username, String mail, String name, String surname, int age, boolean gender, String telephone,
 			String password) {
 		
-		this.amka = amka;
+		this.username = username;
 		this.mail = mail;
 		this.name = name;
 		this.surname = surname;
@@ -22,10 +22,10 @@ public class Admin{
 		this.password = password;
 	}
 	public String getAmka() {
-		return amka;
+		return username;
 	}
 	public void setAmka(String amka) {
-		this.amka = amka;
+		this.username = amka;
 	}
 	public String getMail() {
 		return mail;
