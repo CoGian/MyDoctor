@@ -141,6 +141,7 @@ public class Admin_GUI extends JFrame{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
+					new AddDoctor_GUI(user , reg) ; 
 					dispose() ; 
 				}
 			});
