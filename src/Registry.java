@@ -6,10 +6,10 @@ public class Registry implements Serializable{
 	
 	public ArrayList <Patient> Patients;
 	public  ArrayList <Doctor> Doctors;
+	private Admin  admin ;  
+	public String[] cities = {"Athens" , "Thessaloniki" , "Patra" };
 	
-	String[] cities = {"Athens" , "Thessaloniki" , "Patra" };
-	
-	String[] speciality = {"Cardiology" , "Surgery" , "Pathology" , "Orthopedic"} ; 
+	public String[] speciality = {"Cardiology" , "Surgery" , "Pathology" , "Orthopedic"} ; 
 	
 	
 	public Registry() {
@@ -37,8 +37,12 @@ public class Registry implements Serializable{
 				if(doc.getPassword().equals(password))
 					return doc ; 
 		}
-		return null;
 		
+		if(admin.getAmka().equals(username)&&admin.getPassword().equals(password))
+			return admin ;
+		
+		return null; 
+			
 		
 		
 	}	
@@ -48,6 +52,8 @@ public class Registry implements Serializable{
 		return  Doctors ;
 		
 	}
+	
+	
 	
 	
 }

@@ -105,11 +105,13 @@ public class Auth_GUI extends JFrame implements ActionListener{
 				dispose();
 			}
 			else if(user instanceof Doctor) {
-				//open doctor gui
+				new Doctor_GUI((Doctor) user , reg);
+				dispose();
 			}
 			else if(user instanceof Admin){		
 			
-				//open admin gui
+				new Admin_GUI((Admin)user, reg) ; 
+				dispose();
 			}
 			else
 				JOptionPane.showMessageDialog(this.getContentPane(), "Wrong Username or Password");

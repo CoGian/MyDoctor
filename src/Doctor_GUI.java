@@ -24,7 +24,7 @@ public class Doctor_GUI extends JFrame{
 
 		user = connected ; 
 
-		//commponets of Buuton panel
+		//components of Button panel
 	    ButtonPanel.setLayout(new GridLayout(9,1,10,30));
 	    ButtonPanel.add(new JLabel("Choose an option:"));
 		
@@ -39,8 +39,8 @@ public class Doctor_GUI extends JFrame{
 		PasswordField = new JPasswordField(user.getPassword(),20);
 		TelephoneField = new JTextField(user.getTelephone(),20) ; 
 		
-		//componets of InfoPanel 
-		InfoPanel.setLayout(new GridLayout(13,1,10,10));
+		//components of InfoPanel 
+		InfoPanel.setLayout(new GridLayout(14,1,10,10));
 	   	    
 	    InfoPanel.add(new JLabel("User's Info")) ; 
 	    InfoPanel.add(new JLabel("Name:" + user.getName()));
@@ -57,10 +57,11 @@ public class Doctor_GUI extends JFrame{
 	    	InfoPanel.add(new JLabel("Gender: Male" ));
 	    InfoPanel.add(new JLabel("Telephone: " ));
 	    InfoPanel.add(TelephoneField); 
+	    InfoPanel.add(new JLabel("City: "+user.getCityName()));
 	    InfoPanel.add(ConfigureButton) ; 
 	       
 	    
-	    //componets of panel 
+		//components of panel 
 		this.setContentPane(panel);
        	this.getContentPane().setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
        	this.getContentPane().add(Box.createRigidArea(new Dimension(10,0)));
