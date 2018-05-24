@@ -77,6 +77,7 @@ public class Admin{
 			
 	}
 	
+	//search doctor by his amka if not found return null 
 	public Doctor searchDoctorByAMKA(String amka,Registry reg)
 	{
 		for(Doctor doc : reg.Doctors)
@@ -88,6 +89,7 @@ public class Admin{
 		
 	}
 	
+	//deletes doctor from all possible saved positions 
 	public void deleteDoctor(Doctor doc,Registry reg)
 	{
 		for(Patient key: doc.getPatientMap().keySet())
@@ -99,6 +101,7 @@ public class Admin{
 		
 	}
 	
+	//calculate methods for average in  reviews	
 	public double calcAvgCleanLiness(Doctor aDoctor) {
 		double avg = 0 ; 
 		

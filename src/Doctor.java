@@ -187,6 +187,7 @@ public class Doctor implements Serializable{
 	   
    }
    
+   //add review in reviewlist if  a  patient has reviewed already it just replace the new review with the old
    public void addReview(Review rev)
    {
 	   boolean found = false ; 

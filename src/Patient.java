@@ -124,11 +124,13 @@ public class Patient implements Serializable{
     	
     }
     
+    //adds doctor and adds patients in doctor's patientmap
     public void addDoctor(Doctor aDoctor) {
     	doctorsList.add(aDoctor); 
     	aDoctor.addPatient(this);
     }
     
+    //delete doctor from all saved records in Patient 
     public void deleteDoctor(Doctor aDoctor){
     	doctorsList.remove(aDoctor);
     	
@@ -138,6 +140,7 @@ public class Patient implements Serializable{
     	
     }
     
+    //search doctor in list by name + surname 
     public Doctor searchDocInList(String FullName)
     {
     	for(Doctor doc : doctorsList )
