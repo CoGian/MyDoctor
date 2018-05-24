@@ -98,6 +98,42 @@ public class Admin{
 		reg.Doctors.remove(doc) ; 
 		
 	}
+	
+	public double calcAvgCleanLiness(Doctor aDoctor) {
+		double avg = 0 ; 
+		
+		for(Review rev : aDoctor.getReviewList())
+			avg += rev.getCleanliness() ; 
+		return avg / aDoctor.getReviewList().size() ; 
+		
+	}
+	
+	public double calcAvgStaffCooperation(Doctor aDoctor) {
+		double avg = 0 ; 
+		
+		for(Review rev : aDoctor.getReviewList())
+			avg += rev.getStaffCo_operation() ; 
+		return avg / aDoctor.getReviewList().size() ; 
+		
+	}
+	
+	public double calcAvgDignityAndRespect(Doctor aDoctor) {
+		double avg = 0 ; 
+		
+		for(Review rev : aDoctor.getReviewList())
+			avg += rev.getDignity_and_respect() ; 
+		return avg / aDoctor.getReviewList().size() ; 
+		
+	}
+	
+	public double calcAvgInvolvmentInDecisions(Doctor aDoctor) {
+		double avg = 0 ; 
+		
+		for(Review rev : aDoctor.getReviewList())
+			avg += rev.getInvolvement_in_decisions() ; 
+		return avg / aDoctor.getReviewList().size() ; 
+		
+	}
 
    
 }
