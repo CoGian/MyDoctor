@@ -27,9 +27,9 @@ public class Trasfer_GUI extends JFrame {
 		listpanel.add(new JLabel("Select a city to Transfer:")) ; 
 		CitiesJList.setModel(CCities);
 		
-		for(int i =0 ; i<reg.cities.length ; i++)
-			if(reg.cities[i]!=doc.getCityName())
-				CCities.addElement(reg.cities[i]);
+		for(int i =0 ; i<reg.getCities().length ; i++)
+			if(reg.getCities()[i]!=doc.getCityName())
+				CCities.addElement(reg.getCities()[i]);
 		CitiesPane = new JScrollPane(CitiesJList);
 		listpanel.add(CitiesPane);
 		

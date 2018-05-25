@@ -1,7 +1,12 @@
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
+ 
 
 public class Doctor implements Serializable{
 	private String amka;
@@ -13,9 +18,9 @@ public class Doctor implements Serializable{
 	private String telephone;
 	private String password;
 	private String cityName;
-	private String tag ; 
+	private String tag;
 	private String speciality;
-	private  HashMap<Integer, Integer[]> appointmentMap = new HashMap<Integer, Integer[]>();
+	private  HashMap<Integer, Appointment[]> appointmentMap = new HashMap< Integer,Appointment[]>();
 	private HashMap<Patient, Integer> patientMap = new HashMap<>() ; 
 	private ArrayList<Review> reviewList = new ArrayList<>() ; 
 	
@@ -32,9 +37,19 @@ public class Doctor implements Serializable{
 		this.gender = gender;
 		this.telephone = telephone;
 		this.password = password;
+		this.tag=tag;
 		this.cityName = cityName;
-		this.tag = tag ;
 		this.speciality = speciality;
+		for (int i = 1 ;i<=30;i++) {
+			Appointment[] tempAmp = new Appointment[20];
+			appointmentMap.put(i, tempAmp );
+		}
+		Registry.Doctors.add(this);
+	}
+
+
+	public String getTag() {
+		return tag;
 	}
 
 
@@ -142,25 +157,11 @@ public class Doctor implements Serializable{
 	}
 
 
-	public String getTag() {
-		return tag;
-	}
 
-
-	public void setTag(String tag) {
-		this.tag = tag;
-	}
-
-
-	public HashMap<Integer, Integer[]> getAppointmentMap() {
+	public HashMap<Integer, Appointment[]> getAppointmentMap() {
 		return appointmentMap;
 	}
 
-
-	public void setAppointmentMap(HashMap<Integer, Integer[]> appointmentMap) {
-		this.appointmentMap = appointmentMap;
-	}
-	
 	
 	public void makeAppointment(Patient aPatient , Date aDate) {
 		
@@ -174,8 +175,15 @@ public class Doctor implements Serializable{
    	
    }
    
-   public void showHours() {
+   public ArrayList<String> showHours(int SelectedDate) {
+	   ArrayList<String> AvailableHours = new ArrayList<String>();
+	   Appointment[] appoint = appointmentMap.get(SelectedDate);
+	   for (int i = 0 ;i<20;i++) {
+		   if (appoint[i]==null)
+			   AvailableHours.add(Registry.getAppointmenthours(i));
+	   }
 	   
+	   return AvailableHours;
    }
    
    public void addPatient(Patient aPatient) {
@@ -203,4 +211,7 @@ public class Doctor implements Serializable{
 	   }
    }
 
+   public String toString () {
+	   return this.name + (" ") + this.surname;
+   }
 }

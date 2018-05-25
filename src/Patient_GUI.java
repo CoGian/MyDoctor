@@ -83,7 +83,7 @@ public class Patient_GUI extends JFrame {
 			
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new MakeAppointment_GUI();
+				new MakeAppointment_GUI(connected,reg);
 				dispose() ; 
 			}
 		
