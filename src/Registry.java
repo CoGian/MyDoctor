@@ -58,6 +58,9 @@ public class Registry implements Serializable{
 	public static String getAppointmenthours(int index){
 		return appointmenthours[index];
 	}
+	public static String[] getHours() {
+		return appointmenthours;
+	}
 
 	public static ArrayList<Doctor> searchDoctor(String city, String speciality ,  String tag){
 		ArrayList<Doctor> AvailableDocs = new ArrayList<Doctor>();

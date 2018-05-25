@@ -82,9 +82,13 @@ public class MakeAppointment_GUI extends JFrame{
 				String SelectedCity = (String) cities_list.getSelectedItem();
 				String SelectedSpeciality = (String) Specialisation_list.getSelectedItem();
 				String SelectedTag = tagfield.getText();
+				ArrayList<Doctor> preferredDoctors = connected.getDoctorsList();
+				for (Doctor doc : preferredDoctors)
+					((DefaultListModel<Doctor>) DDoctors).addElement(doc);
 				ArrayList<Doctor> ArrayListDocs = Registry.searchDoctor(SelectedCity,SelectedSpeciality,SelectedTag);
 				for (Doctor  doc : ArrayListDocs ) {
-					((DefaultListModel<Doctor>) DDoctors).addElement(doc);
+					if (!preferredDoctors.contains(doc))
+						((DefaultListModel<Doctor>) DDoctors).addElement(doc);
 				}
 				SearchButton.setEnabled(false);
 			}
@@ -150,20 +154,16 @@ public class MakeAppointment_GUI extends JFrame{
 				String SelectedHour = avail_hours.getSelectedValue();
 				if (SelectedHour!=null) {
 					String temp1[]=SelectedHour.split("-");
-					String temp = SelectedDay+" " + temp1[0];
-					System.out.println(temp);
-					
+					String temp = SelectedDay+" " + temp1[0];	
 					try {
 						Date date;
 						if (temp1[0].equals("12:00") || temp1[0].equals("12:30")) {
 							temp = temp + " PM";
 							date = new SimpleDateFormat("dd MMM yyyy hh:mm a").parse(temp);
-							System.out.println(date);
 						}
-						else {
+						else 
 							date = new SimpleDateFormat("dd MMM yyyy hh:mm").parse(temp);
-							System.out.println(date);
-						}
+
 						
 						LocalDate SelectedDate1 = LocalDate.parse(SelectedDay, formatter);
 						int i = 0 ;
@@ -171,12 +171,13 @@ public class MakeAppointment_GUI extends JFrame{
 							if (SelectedDate1.equals(LocalDate.now().plusDays(i)))
 								break ;
 							i++;
-						}	
-						/*HashMap<Integer,Appointment[]> App = SelectedDoctor.getAppointmentMap();
-						Appointment[] ap = App.get(i);
-						new Appointment(SelectedDoctor,connected,date)
-						*/		
-						JOptionPane.showMessageDialog(Make_AppointmentButton, "Your appointment has been scheduled on : " + date );
+						}
+						Appointment appointment = new Appointment(SelectedDoctor,connected,date);
+						SelectedDoctor.addAppointment(i+1,SelectedHour,appointment);
+						JOptionPane.showMessageDialog(Make_AppointmentButton, "Your appointment has been scheduled on : " + date );	
+						connected.addDoctor(SelectedDoctor);
+						new Patient_GUI(connected, reg);
+						dispose();
 					} catch (ParseException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

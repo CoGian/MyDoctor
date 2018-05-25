@@ -155,13 +155,6 @@ public class Doctor implements Serializable{
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
-
-
-
-	public HashMap<Integer, Appointment[]> getAppointmentMap() {
-		return appointmentMap;
-	}
-
 	
 	public void makeAppointment(Patient aPatient , Date aDate) {
 		
@@ -194,7 +187,19 @@ public class Doctor implements Serializable{
    public void writePrescription(Patient aPatient,String prescription) {
 	   
    }
+   //add appointment in appointmentmap 
+   public void addAppointment(int day ,String SelectedHour,Appointment appointment) {
+	   String[] hours = Registry.getHours();
+	   Appointment[] dayAppointments = this.appointmentMap.get(day);
+	   int index = 0;
+	   for (int i=0; i<20;i++) {
+		   if (hours[i]==SelectedHour)
+			   index  = i ;
+	   }
+	   dayAppointments[index] = appointment;
+	   this.appointmentMap.put(day, dayAppointments);
    
+   }
    //add review in reviewlist if  a  patient has reviewed already it just replace the new review with the old
    public void addReview(Review rev)
    {

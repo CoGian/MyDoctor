@@ -127,8 +127,10 @@ public class Patient implements Serializable{
     
     //adds doctor and adds patients in doctor's patientmap
     public void addDoctor(Doctor aDoctor) {
-    	doctorsList.add(aDoctor); 
-    	aDoctor.addPatient(this);
+    	if (!doctorsList.contains(aDoctor)) {
+    		doctorsList.add(aDoctor); 
+    		aDoctor.addPatient(this);
+    	}
     }
     
     //delete doctor from all saved records in Patient 
