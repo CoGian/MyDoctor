@@ -200,6 +200,16 @@ public class Doctor implements Serializable{
 	   this.appointmentMap.put(day, dayAppointments);
    
    }
+   
+   public Patient searchPatientFromList(String amka)
+   {
+	   for(Patient key: this.getPatientMap().keySet()) {
+		   if(key.getAmka().equals(amka))
+			   return key;
+	   }
+	   return null;
+   }
+   
    //add review in reviewlist if  a  patient has reviewed already it just replace the new review with the old
    public void addReview(Review rev)
    {

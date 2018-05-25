@@ -8,7 +8,8 @@ public class Doctor_GUI extends JFrame{
 	private JPanel panel = new JPanel(); 
 	private JPanel InfoPanel = new JPanel() ; 
 	private JPanel ButtonPanel = new JPanel() ; 
-		
+	
+	private JTextField amkaField = new JTextField(20);	
 	private JButton SearchPatientButton = new JButton("Search Patient");
 	private JButton CancelAppointmentsButton = new JButton("Cancel Appointments");
 	private JButton ConfigureButton = new JButton("Configure" ); 
@@ -28,7 +29,7 @@ public class Doctor_GUI extends JFrame{
 	    ButtonPanel.setLayout(new GridLayout(9,1,10,30));
 	    ButtonPanel.add(new JLabel("Choose an option:"));
 		
-	    ButtonPanel.add(new JTextField(20));
+	    ButtonPanel.add(amkaField);
 		ButtonPanel.add(SearchPatientButton);
 		ButtonPanel.add(CancelAppointmentsButton);
 		ButtonPanel.add(SignOutButton);
@@ -76,9 +77,47 @@ public class Doctor_GUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
+				Patient foundPatient = user.searchPatientFromList(amkaField.getText());
+				if(foundPatient != null) {
+					new PatientInfo_GUI(foundPatient, user, reg);
+					dispose();
+				}
+				else JOptionPane.showMessageDialog(getParent(), "Patient not found");
 			}
     	});
+    	
+    	CancelAppointmentsButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				new CancelAppointmentD_GUI(user, reg);
+				dispose();
+			}
+    		
+    	});
+    	
+    	ConfigureButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				user.setPassword(PasswordField.getText());
+				user.setMail(EmailField.getText());
+				user.setTelephone(TelephoneField.getText());
+				JOptionPane.showMessageDialog(panel,"Saved" );
+			}
+		});
+    	
+    	SignOutButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new Auth_GUI(reg) ; 
+				dispose(); 
+			}
+		});
     	
     	this.setSize(500,500);
 		this.setVisible(true);
