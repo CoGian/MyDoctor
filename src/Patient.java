@@ -14,7 +14,7 @@ public class Patient implements Serializable{
 	private String password;
 	private ArrayList<Appointment> appointmentList  = new ArrayList<>()  ; 
 	private ArrayList<Doctor> doctorsList = new ArrayList<>() ; 
-	private ArrayList<String> prescriptionList = new ArrayList<>() ; 
+	private HashMap<Doctor,String> prescriptionList = new HashMap<>() ; 
 	
 	
 	public Patient(String amka, String mail, String name, String surname, int age, boolean gender, String telephone,
@@ -104,7 +104,7 @@ public class Patient implements Serializable{
 		return doctorsList;
 	}
 
-	public ArrayList<String> getPrescriptionList() {
+	public HashMap<Doctor,String> getPrescriptionList() {
 		return prescriptionList;
 	}
 
@@ -162,5 +162,8 @@ public class Patient implements Serializable{
 			
     }
 
+    public void editPrescriptionList(String prescription, Doctor aDoctor) {
+    	this.prescriptionList.put(aDoctor, prescription);
+    }
    
 }

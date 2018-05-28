@@ -80,6 +80,12 @@ public class Registry implements Serializable{
 		return  TagDocs;
 	}
 	
+	public static Patient searchPatient(String amka) {
+		for(Patient p: Patients) {
+			if (p.getAmka().equals(amka)) return p;
+		}
+		return null;
+	}
 	
 }
 	
