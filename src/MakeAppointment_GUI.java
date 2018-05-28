@@ -198,6 +198,22 @@ public class MakeAppointment_GUI extends JFrame{
 			
 		});
 	
+		InformationButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				Doctor SelectedDoctor = avail_docs.getSelectedValue();
+				if (SelectedDoctor!=null) {
+						new DoctorInfo_GUI(SelectedDoctor,reg,connected);
+						dispose();
+				}
+				else 
+					JOptionPane.showMessageDialog(InformationButton, "Choose a doctor please.");
+			}
+			
+		});
+		
 		Result_Panel.add(new JLabel("Available days :"));
 		Result_Panel.add(new JScrollPane(days));
 		
