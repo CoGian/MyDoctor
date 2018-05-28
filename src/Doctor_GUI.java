@@ -77,7 +77,7 @@ public class Doctor_GUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				Patient foundPatient = user.searchPatientFromList(amkaField.getText());
+				Patient foundPatient = reg.searchPatient(amkaField.getText());
 				if(foundPatient != null) {
 					new PatientInfo_GUI(foundPatient, user, reg);
 					dispose();
