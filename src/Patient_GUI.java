@@ -106,6 +106,7 @@ public class Patient_GUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				new MyAppointments_GUI(user,reg);
 				dispose() ; 
 			}
 		});
@@ -116,6 +117,7 @@ public class Patient_GUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				new SeePrescriptions_GUI(user,reg);
 				dispose() ; 
 			}
 		});

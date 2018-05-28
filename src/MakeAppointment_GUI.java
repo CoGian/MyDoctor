@@ -27,7 +27,6 @@ public class MakeAppointment_GUI extends JFrame{
 	private static final String[] Calendar = null;
 	//panels
 	
-	private JPanel Appointment_Panel = new JPanel();
 	private JPanel Search_Panel = new JPanel();
 	private JPanel Result_Panel = new JPanel();
 	private JPanel Make_Panel = new JPanel();
@@ -118,6 +117,7 @@ public class MakeAppointment_GUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				Show_HoursButton.setEnabled(false);
 				String SelectedDay = days.getSelectedValue();
 				Doctor SelectedDoctor = avail_docs.getSelectedValue();
 				if (SelectedDay!=null && SelectedDoctor!=null) {
@@ -135,12 +135,18 @@ public class MakeAppointment_GUI extends JFrame{
 					}
 					String SelectedHour = avail_hours.getSelectedValue();
 				}
-				else if (SelectedDay==null && SelectedDoctor== null)
+				else if (SelectedDay==null && SelectedDoctor== null) {
 					JOptionPane.showMessageDialog(Show_HoursButton, "Please choose doctor and day");
-				else if (SelectedDoctor==null)
+					Show_HoursButton.setEnabled(true);
+				}
+				else if (SelectedDoctor==null) {
 					JOptionPane.showMessageDialog(Show_HoursButton, "Please choose a doctor");
-				else 
+					Show_HoursButton.setEnabled(true);
+				}
+				else {
 					JOptionPane.showMessageDialog(Show_HoursButton, "Please choose a day");
+					Show_HoursButton.setEnabled(true);
+				}
 			}
 		});
 		
@@ -173,6 +179,7 @@ public class MakeAppointment_GUI extends JFrame{
 							i++;
 						}
 						Appointment appointment = new Appointment(SelectedDoctor,connected,date);
+						connected.AddAppointment(appointment);
 						SelectedDoctor.addAppointment(i+1,SelectedHour,appointment);
 						JOptionPane.showMessageDialog(Make_AppointmentButton, "Your appointment has been scheduled on : " + date );	
 						connected.addDoctor(SelectedDoctor);
@@ -233,7 +240,6 @@ public class MakeAppointment_GUI extends JFrame{
 		
 		//final panel
 		
-		this.setContentPane(Appointment_Panel);
 		this.getContentPane().setLayout(new GridLayout(3,1));
 		this.getContentPane().add(Search_Panel);
 		this.getContentPane().add(Result_Panel);

@@ -28,8 +28,13 @@ public class Appointment {
 	public Date getDate() {
 		return date;
 	}
+	public String getId() {
+		return id ;
+	}
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
+	public String toString() {
+		return date + " " + doctor.getName() + " " + doctor.getSurname();
+	}
 }

@@ -108,11 +108,19 @@ public class Patient implements Serializable{
 		return prescriptionList;
 	}
 
-	public void makeAppointment(Doctor aDoctor,Date aDate) {
-		
+	public void AddAppointment(Appointment App) {
+		appointmentList.add(App);
 	}
 	
-    public void cancelAppointment(Date selectedDate) {
+	public ArrayList<Appointment> getAppointments() {
+		return this.appointmentList; 
+	}
+	
+    public void cancelAppointment(Appointment selectedAppointment) {
+		Doctor doctor = selectedAppointment.getDoctor();
+		String id = selectedAppointment.getId();
+		doctor.removeAppointment(id);
+    	appointmentList.remove(selectedAppointment);
 		
 	}
     

@@ -179,6 +179,27 @@ public class Doctor implements Serializable{
 	   return AvailableHours;
    }
    
+   public void removeAppointment(String id) {
+	   boolean flag = false;
+	   int i = 1 ;
+	   String TempId = null;
+	   while (i<=appointmentMap.size() && !flag) {
+		   Appointment[] appoint = appointmentMap.get(i);
+		   int j = 0 ;
+		   while (j<20 && !flag) {
+			   Appointment TempApp = appoint[j];
+			   if (TempApp!=null) {
+			   		TempId = TempApp.getId();
+			   		if (TempId.equals(TempId)) {
+			   			appoint[j] = null;
+			   			flag= true ;
+			   		}
+			   }
+			   j++;
+		   }
+		   i++;
+	   }
+   }
    public void addPatient(Patient aPatient) {
 	   
    }
