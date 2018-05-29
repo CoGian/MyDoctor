@@ -24,7 +24,7 @@ import javax.swing.JTextField;
 import javax.swing.ListModel;
 public class MakeAppointment_GUI extends JFrame{
 
-	private static final String[] Calendar = null;
+
 	//panels
 	
 	private JPanel Search_Panel = new JPanel();
@@ -46,7 +46,7 @@ public class MakeAppointment_GUI extends JFrame{
 	private JButton Make_AppointmentButton = new JButton ("Make the Appointment");
 	
 	// jlists ,deafultmodels
-	private ListModel<Doctor> DDoctors = new DefaultListModel<Doctor>();
+	private DefaultListModel<Doctor> DDoctors = new DefaultListModel<Doctor>();
 	private DefaultListModel<String> DHours = new DefaultListModel<String>();
 	private DefaultListModel<String> DDays = new DefaultListModel<String>();
 	
@@ -73,23 +73,27 @@ public class MakeAppointment_GUI extends JFrame{
 
 		Search_Panel.add(SearchButton);
 		
+		Result_Panel.add(new JLabel ("Available Docs :"));
+		
 		SearchButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				DDoctors.removeAllElements();
 				String SelectedCity = (String) cities_list.getSelectedItem();
 				String SelectedSpeciality = (String) Specialisation_list.getSelectedItem();
 				String SelectedTag = tagfield.getText();
 				ArrayList<Doctor> preferredDoctors = connected.getDoctorsList();
 				for (Doctor doc : preferredDoctors)
-					((DefaultListModel<Doctor>) DDoctors).addElement(doc);
+					if (doc.getSpeciality().equals(SelectedSpeciality) && doc.getCityName().equals(SelectedCity))
+						((DefaultListModel<Doctor>) DDoctors).addElement(doc);
 				ArrayList<Doctor> ArrayListDocs = Registry.searchDoctor(SelectedCity,SelectedSpeciality,SelectedTag);
 				for (Doctor  doc : ArrayListDocs ) {
 					if (!preferredDoctors.contains(doc))
 						((DefaultListModel<Doctor>) DDoctors).addElement(doc);
 				}
-				SearchButton.setEnabled(false);
+				
 			}
 		});
 		//result_panel.
@@ -97,8 +101,9 @@ public class MakeAppointment_GUI extends JFrame{
 		
 		//docs list.
 		avail_docs.setModel(DDoctors);
-		Result_Panel.add(new JLabel ("Available Docs :"));
 		Result_Panel.add(new JScrollPane(avail_docs));
+
+
 		
 		//days list.
 		
@@ -117,7 +122,7 @@ public class MakeAppointment_GUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				Show_HoursButton.setEnabled(false);
+				DHours.removeAllElements();
 				String SelectedDay = days.getSelectedValue();
 				Doctor SelectedDoctor = avail_docs.getSelectedValue();
 				if (SelectedDay!=null && SelectedDoctor!=null) {
@@ -135,18 +140,13 @@ public class MakeAppointment_GUI extends JFrame{
 					}
 					String SelectedHour = avail_hours.getSelectedValue();
 				}
-				else if (SelectedDay==null && SelectedDoctor== null) {
+				else if (SelectedDay==null && SelectedDoctor== null) 
 					JOptionPane.showMessageDialog(Show_HoursButton, "Please choose doctor and day");
-					Show_HoursButton.setEnabled(true);
-				}
-				else if (SelectedDoctor==null) {
+				else if (SelectedDoctor==null) 
 					JOptionPane.showMessageDialog(Show_HoursButton, "Please choose a doctor");
-					Show_HoursButton.setEnabled(true);
-				}
-				else {
+				else 
 					JOptionPane.showMessageDialog(Show_HoursButton, "Please choose a day");
-					Show_HoursButton.setEnabled(true);
-				}
+		
 			}
 		});
 		

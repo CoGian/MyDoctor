@@ -51,10 +51,10 @@ public class MyAppointments_GUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				ListModelApps.removeAllElements();
 				ArrayList<Appointment> myAppointments = connected.getAppointmentList();
 				for (Appointment app : myAppointments) 
 					ListModelApps.addElement(app);
-				ShowAppointmentsButton.setEnabled(false);
 			}
 		});
 		
