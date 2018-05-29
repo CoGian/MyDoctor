@@ -65,7 +65,8 @@ public class PatientInfo_GUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				foundPatient.editPrescriptionList(PrescriptionField.getText(), user);
+				user.writePrescription(foundPatient, PrescriptionField.getText());
+				JOptionPane.showMessageDialog(getParent(), "Prescription saved!");
 			}
 	    	
 	    });

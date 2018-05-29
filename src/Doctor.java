@@ -206,7 +206,7 @@ public class Doctor implements Serializable{
    
    
    public void writePrescription(Patient aPatient,String prescription) {
-	   
+	   aPatient.editPrescriptionList(prescription, this);
    }
    //add appointment in appointmentmap 
    public void addAppointment(int day ,String SelectedHour,Appointment appointment) {
