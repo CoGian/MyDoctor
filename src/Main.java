@@ -20,12 +20,12 @@ public class Main {
 		Doctor doctor4 = new Doctor ("7634522111","LOL@GMAIL.com","Apostolis","Gianakopoulos",43,false,"6982223333" , "0","Thessaloniki","HeartAttack","Cardiology");
 		//patient.addDoctor(doctor);
 		Serialization.SaveToFile(reg);
-		new Patient_GUI(patient,reg);
+		//new Patient_GUI(patient,reg);
 		//reg.Patients.add(patient);
 		//Serialization.SaveToFile(reg);
 		//new MakeReview_GUI(patient, reg); 
 		//new Auth_GUI(reg) ; 
-		//new Admin_GUI(admin, reg) ; 
+		new Admin_GUI(admin, reg) ; 
 		//new Doctor_GUI(doctor, reg);
 	}
 
