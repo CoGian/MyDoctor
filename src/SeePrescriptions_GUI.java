@@ -44,13 +44,16 @@ public class SeePrescriptions_GUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				doctors_list.removeAllItems();
+				for (int i = 0; i <RightDocs.size();i++) {
+					RightDocs.remove(i);
+				}
 				doctors = connected.getDoctorsList();
 				for (Doctor doc : doctors) {
 					if (Specialisation_list.getSelectedItem().equals(doc.getSpeciality()))
 						RightDocs.add(doc);
 				}
 				doctors_list.setModel(new DefaultComboBoxModel(RightDocs.toArray()));
-				ShowDoctors.setEnabled(false);
 			}
 			
 		});
