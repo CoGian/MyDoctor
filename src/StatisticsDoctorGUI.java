@@ -14,16 +14,21 @@ import org.jfree.ui.RefineryUtilities;
 public class StatisticsDoctorGUI extends JFrame {
 	
 	private Doctor aDoctor;
-	private int total_cleanliness;
-	private int total_staff_cooperation;
-	private int total_dignity;
-	private int total_involvement;
-	private int int_general_rating;
+	private float total_cleanliness;
+	private float total_staff_cooperation;
+	private float total_dignity;
+	private float total_involvement;
+	private float int_general_rating;
 	
 	
 	public StatisticsDoctorGUI(Doctor aDoctor,Registry reg,Admin admin) {
 		
 		this.aDoctor = aDoctor;
+		total_cleanliness=aDoctor.getTotal_cleanliness();
+		total_dignity=aDoctor.getTotal_dignity();
+		total_involvement=aDoctor.getTotal_involvement();
+		total_staff_cooperation=aDoctor.getTotal_staff_cooperation();
+		int_general_rating=aDoctor.getOverall_rating();
 		 if(aDoctor.getReviewList().isEmpty() ) {
 			   JOptionPane.showMessageDialog(new JPanel(), "This doctor has not been reviewed yet.");
 			   new Admin_GUI(admin,reg);
@@ -48,17 +53,6 @@ public class StatisticsDoctorGUI extends JFrame {
 			}
    
    private CategoryDataset createDataset( ) {
-	  
-	
-	   for(Review aReview: aDoctor.getReviewList()) {
-		   total_cleanliness+=aReview.getCleanliness();
-		   total_staff_cooperation+=aReview.getStaffCo_operation();
-		   total_dignity+=aReview.getDignity_and_respect();
-		   total_involvement+=aReview.getInvolvement_in_decisions();
-		   int_general_rating+=aReview.getGeneral_Rating();
-	   }
-	   
-	   
 	   
 	   final String cleanliness = "Cleanliness";        
 	   final String staff_cooperation = "Staff Cooperation";        

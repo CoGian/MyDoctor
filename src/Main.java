@@ -28,7 +28,6 @@ public class Main {
 		//new Auth_GUI(reg) ; 
 		//new Admin_GUI(admin, reg) ; 
 		//new Doctor_GUI(doctor, reg);
-
 		new Admin_GUI(admin, reg) ; 
 		//new Doctor_GUI(doctor, reg);
 
