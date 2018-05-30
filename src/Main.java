@@ -26,7 +26,7 @@ public class Main {
 		//new MakeReview_GUI(patient, reg); 
 		//new Auth_GUI(reg) ; 
 		//new Admin_GUI(admin, reg) ; 
-		//new Doctor_GUI(doctor, reg);
+		new Doctor_GUI(doctor, reg);
 	}
 
 }
