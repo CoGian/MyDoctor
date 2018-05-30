@@ -14,20 +14,19 @@ import org.jfree.ui.RefineryUtilities;
 public class StatisticsDoctorGUI extends JFrame {
 	
 	private Doctor aDoctor;
-	private Registry aRegistry;
 	private int total_cleanliness;
 	private int total_staff_cooperation;
 	private int total_dignity;
 	private int total_involvement;
-	private int general_rating;
+	private int int_general_rating;
 	
 	
-	public StatisticsDoctorGUI(Doctor aDoctor,Registry aRegistry) {
+	public StatisticsDoctorGUI(Doctor aDoctor,Registry reg,Admin admin) {
 		
 		this.aDoctor = aDoctor;
 		 if(aDoctor.getReviewList().isEmpty() ) {
 			   JOptionPane.showMessageDialog(new JPanel(), "This doctor has not been reviewed yet.");
-			   
+			   new Admin_GUI(admin,reg);
 		   }
 		 else {
 		BarChart_AWT chart = new BarChart_AWT("Doctor's Statistics", "Review Summary");
@@ -56,7 +55,7 @@ public class StatisticsDoctorGUI extends JFrame {
 		   total_staff_cooperation+=aReview.getStaffCo_operation();
 		   total_dignity+=aReview.getDignity_and_respect();
 		   total_involvement+=aReview.getInvolvement_in_decisions();
-		   general_rating+=aReview.getGeneral_Rating();
+		   int_general_rating+=aReview.getGeneral_Rating();
 	   }
 	   
 	   
@@ -73,7 +72,7 @@ public class StatisticsDoctorGUI extends JFrame {
 	   dataset.addValue( total_staff_cooperation/aDoctor.getReviewList().size() , main , staff_cooperation ); 
 	   dataset.addValue( total_dignity/aDoctor.getReviewList().size() , main , dignity );        
 	   dataset.addValue( total_involvement/aDoctor.getReviewList().size() , main , involvement_in_decisions );       
-	   dataset.addValue( StatisticsDoctorGUI.this.general_rating/aDoctor.getReviewList().size()  , main , general_rating );       	
+	   dataset.addValue( StatisticsDoctorGUI.this.int_general_rating/aDoctor.getReviewList().size()  , main , general_rating );       	
 
 	   return dataset; 
    }

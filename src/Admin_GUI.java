@@ -131,7 +131,7 @@ public class Admin_GUI extends JFrame{
 					Doctor doc = admin.searchDoctorByAMKA(amka, reg) ; 
 					if(doc!= null) {
 						
-						new StatisticsDoctorGUI(doc,reg);
+						new StatisticsDoctorGUI(doc,reg,user);
 					
 					}
 					else
