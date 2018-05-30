@@ -10,6 +10,7 @@ public class Admin_GUI extends JFrame{
 		private JButton TransferButton = new JButton("Transfer") ; 
 		private JButton DeleteButton = new JButton("Delete") ; 
 		private JButton InformationButton = new JButton("Information") ; 
+		private JButton StatisticsButton = new JButton("Statistics");
 		private JButton AddADoctorButton = new JButton("Add a Doctor") ; 
 		private JButton ConfigureButton = new JButton("Configure" ) ; 
 		private JButton SignOutButton = new JButton("Sign out") ; 
@@ -38,6 +39,7 @@ public class Admin_GUI extends JFrame{
 			ButtonPanel.add(TransferButton);
 			ButtonPanel.add(DeleteButton);
 			ButtonPanel.add(InformationButton);
+			ButtonPanel.add(StatisticsButton);
 			ButtonPanel.add(AddADoctorButton);
 			ButtonPanel.add(SignOutButton);
 			ButtonPanel.add(new JLabel("  "));
@@ -103,7 +105,38 @@ public class Admin_GUI extends JFrame{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
-				    
+					String amka =  DoctorAMKAField.getText() ; 
+					Doctor doc = admin.searchDoctorByAMKA(amka, reg) ; 
+					if(doc!= null) {
+						
+						
+						
+						
+						
+					    dispose() ; 
+					}
+					else
+						JOptionPane.showMessageDialog(panel, "Doctor not found");
+				
+					dispose() ; 
+				}
+			});
+			
+			StatisticsButton.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					String amka =  DoctorAMKAField.getText() ; 
+					Doctor doc = admin.searchDoctorByAMKA(amka, reg) ; 
+					if(doc!= null) {
+						
+						new StatisticsDoctorGUI(doc,reg,user);
+					
+					}
+					else
+						JOptionPane.showMessageDialog(panel, "Doctor not found");
+				
 					dispose() ; 
 				}
 			});

@@ -23,7 +23,8 @@ public class Doctor implements Serializable{
 	private  HashMap<Integer, Appointment[]> appointmentMap = new HashMap< Integer,Appointment[]>();
 	private HashMap<Patient, Integer> patientMap = new HashMap<>() ; 
 	private ArrayList<Review> reviewList = new ArrayList<>() ; 
-	
+	//statistics
+
 
 	public Doctor(String amka, String mail, String name, String surname, int age, boolean gender, String telephone,
 
@@ -250,4 +251,6 @@ public class Doctor implements Serializable{
    public String toString () {
 	   return this.name + (" ") + this.surname;
    }
+   
+
 }

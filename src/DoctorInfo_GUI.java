@@ -1,4 +1,4 @@
-import java.awt.Dimension;
+	import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -53,6 +53,7 @@ public class DoctorInfo_GUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				
 				new MakeAppointment_GUI(connected,reg);
 				dispose();
 			}
