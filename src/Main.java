@@ -26,11 +26,20 @@ public class Main {
 		//Serialization.SaveToFile(reg);
 		//new MakeReview_GUI(patient, reg); 
 		//new Auth_GUI(reg) ; 
+<<<<<<< HEAD
+
+		//new Admin_GUI(admin, reg) ; 
+		new Doctor_GUI(doctor, reg);
+
+		new Admin_GUI(admin, reg) ; 
+		//new Doctor_GUI(doctor, reg);
+=======
 		//new Admin_GUI(admin, reg) ; 
 		//new Doctor_GUI(doctor, reg);
 		new Admin_GUI(admin, reg) ; 
 		//new Doctor_GUI(doctor, reg);
 
+>>>>>>> d60374d013f4ce2656b0c0c55749cbfa6571e0e6
 	}
 
 }
