@@ -61,7 +61,8 @@ public class StatisticsDoctorGUI extends JFrame {
 	   final String general_rating = "Overall";    
 	   final String main = "Doctor"; 
 	   DefaultCategoryDataset dataset = new DefaultCategoryDataset( );  	
-
+	   System.out.println(total_cleanliness+total_dignity);
+	  
 	   dataset.addValue( total_cleanliness/aDoctor.getReviewList().size(), main , cleanliness );                
 	   dataset.addValue( total_staff_cooperation/aDoctor.getReviewList().size() , main , staff_cooperation ); 
 	   dataset.addValue( total_dignity/aDoctor.getReviewList().size() , main , dignity );        

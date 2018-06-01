@@ -21,7 +21,7 @@ public class Doctor implements Serializable{
 	private String cityName;
 	private String tag;
 	private String speciality;
-	private int visits;
+	
 	private  HashMap<Integer, Appointment[]> appointmentMap = new HashMap< Integer,Appointment[]>();
 	private HashMap<Patient, Integer> patientMap = new HashMap<>() ; 
 	private ArrayList<Review> reviewList = new ArrayList<>() ; 
@@ -32,6 +32,8 @@ public class Doctor implements Serializable{
 	private float total_dignity;
 	private float total_involvement;
 	private float overall_rating;
+	
+	private int visits;
 
 
 	public Doctor(String amka, String mail, String name, String surname, int age, boolean gender, String telephone,
@@ -56,7 +58,10 @@ public class Doctor implements Serializable{
 		Registry.Doctors.add(this);
 	}
 
-
+	public int getVisits() {
+		return visits;
+	}
+	
 	public String getTag() {
 		return tag;
 	}
@@ -275,7 +280,12 @@ public class Doctor implements Serializable{
 		   }
 			  
 	   if(!found) {
-		   reviewList.add(rev) ; 
+		   reviewList.add(rev) ;
+		   total_cleanliness+=rev.getCleanliness();
+		   total_dignity=+rev.getDignity_and_respect();
+		   total_involvement+=rev.getInvolvement_in_decisions();
+		   total_staff_cooperation=+rev.getStaffCo_operation();
+		   overall_rating+=rev.getGeneral_Rating();
 	   }
    }
 
