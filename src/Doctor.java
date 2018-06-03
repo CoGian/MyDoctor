@@ -6,9 +6,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
- 
+
 
 public class Doctor implements Serializable{
+	
 	private String amka;
 	private String mail;
 	private String name;
@@ -20,10 +21,19 @@ public class Doctor implements Serializable{
 	private String cityName;
 	private String tag;
 	private String speciality;
+	
 	private  HashMap<Integer, Appointment[]> appointmentMap = new HashMap< Integer,Appointment[]>();
 	private HashMap<Patient, Integer> patientMap = new HashMap<>() ; 
 	private ArrayList<Review> reviewList = new ArrayList<>() ; 
+	
 	//statistics
+	private float total_cleanliness;
+	private float total_staff_cooperation;
+	private float total_dignity;
+	private float total_involvement;
+	private float overall_rating;
+	
+	private int visits;
 
 
 	public Doctor(String amka, String mail, String name, String surname, int age, boolean gender, String telephone,
@@ -48,7 +58,10 @@ public class Doctor implements Serializable{
 		Registry.Doctors.add(this);
 	}
 
-
+	public int getVisits() {
+		return visits;
+	}
+	
 	public String getTag() {
 		return tag;
 	}
@@ -157,6 +170,29 @@ public class Doctor implements Serializable{
 		this.cityName = cityName;
 	}
 	
+	public float getTotal_cleanliness() {
+		return total_cleanliness;
+	}
+
+
+	public float getTotal_staff_cooperation() {
+		return total_staff_cooperation;
+	}
+
+
+	public float getTotal_dignity() {
+		return total_dignity;
+	}
+
+
+	public float getTotal_involvement() {
+		return total_involvement;
+	}
+
+	public float getOverall_rating() {
+		return overall_rating;
+	}
+
 	public void makeAppointment(Patient aPatient , Date aDate) {
 		
 	}
@@ -244,7 +280,12 @@ public class Doctor implements Serializable{
 		   }
 			  
 	   if(!found) {
-		   reviewList.add(rev) ; 
+		   reviewList.add(rev) ;
+		   total_cleanliness+=rev.getCleanliness();
+		   total_dignity=+rev.getDignity_and_respect();
+		   total_involvement+=rev.getInvolvement_in_decisions();
+		   total_staff_cooperation=+rev.getStaffCo_operation();
+		   overall_rating+=rev.getGeneral_Rating();
 	   }
    }
 
@@ -252,5 +293,20 @@ public class Doctor implements Serializable{
 	   return this.name + (" ") + this.surname;
    }
    
+   public void refreshStatistics() {
+	   
+	   for(Review aReview: this.getReviewList()) {
+		   total_cleanliness+=aReview.getCleanliness();
+		   total_staff_cooperation+=aReview.getStaffCo_operation();
+		   total_dignity+=aReview.getDignity_and_respect();
+		   total_involvement+=aReview.getInvolvement_in_decisions();
+		   overall_rating+=aReview.getGeneral_Rating();
+	   }
+	   total_cleanliness/=this.getReviewList().size();
+	   total_staff_cooperation/=this.getReviewList().size();
+	   total_dignity/=this.getReviewList().size();
+	   total_involvement/=this.getReviewList().size();
+	   overall_rating/=this.getReviewList().size();
+   }
 
 }

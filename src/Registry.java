@@ -3,7 +3,6 @@ import java.util.ArrayList;
 
 public class Registry implements Serializable{
 	
-	
 	public static ArrayList <Patient> Patients;
 	public static ArrayList <Doctor> Doctors;
 	private Admin  admin ;  
@@ -12,9 +11,10 @@ public class Registry implements Serializable{
 	private static String[] specialities = {"Cardiology" , "Surgery" , "Pathology" , "Orthopedic"} ; 
 	private static String[] appointmenthours = {"10:00-10:30","10:30-11:00","11:00-11:30","11:30-12:00","12:00-12:30","12:30-13:00","13:00-13:30","13:30-14:00","14:00-14:30",
 			"14:30-15:00","15:00-15:30","15:30-16:00","16:00-16:30","16:30-17:00","17:00-17:30","17:30-18:00","18:00-18:30","18:30-19:00","19:00-19:30","19:30-20:00"};
+
 	
 	public Registry() {
-		 Patients= new ArrayList<>(); ; 
+		 Patients= new ArrayList<>();  
 		 Doctors= new ArrayList<>(); 
 	}
 
@@ -87,6 +87,15 @@ public class Registry implements Serializable{
 		return null;
 	}
 	
+	public int getVisitPerCityPerSpeciality(String city, String Speciality) {
+		int total_visits=0;
+		for(Doctor aDoctor: Doctors) {
+			if(aDoctor.getCityName().equals(city)&&aDoctor.getSpeciality().equals(Speciality)) {
+				total_visits+=aDoctor.getVisits();
+			}
+		}
+		return total_visits;
+	}
 }
 	
 
