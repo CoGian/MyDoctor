@@ -25,6 +25,10 @@ public class Main {
 		//reg.Patients.add(patient);
 		//Serialization.SaveToFile(reg);
 		//new MakeReview_GUI(patient, reg); 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5bda3bd760b55822dd493385d0cceac2d9a8e742
 		//new Auth_GUI(reg) ; 
         
 
@@ -34,9 +38,15 @@ public class Main {
 		new Admin_GUI(admin, reg) ; 
 		//new Doctor_GUI(doctor, reg);
 
+<<<<<<< HEAD
+		//new Admin_GUI(admin, reg) ; 
+
+		//new Auth_GUI(reg) ;		
+=======
 
 
 		
+>>>>>>> 5bda3bd760b55822dd493385d0cceac2d9a8e742
 
 		//new Doctor_GUI(doctor, reg);
 
