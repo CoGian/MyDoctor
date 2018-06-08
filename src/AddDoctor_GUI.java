@@ -91,8 +91,7 @@ public class AddDoctor_GUI extends JFrame{
 					  else 
 						  gender1 = false ; 
 					  int age1 = Integer.parseInt(age); 
-					  Doctor doc = new Doctor(amka, mail, name, surname, age1, gender1, telephone, password, cityName, tag, speciality);
-				      reg.Doctors.add(doc) ; 
+					  new Doctor(amka, mail, name, surname, age1, gender1, telephone, password, cityName, tag, speciality);
 				      JOptionPane.showMessageDialog(RegisterPanel, "Registration Completed");
 				 }
 				 else

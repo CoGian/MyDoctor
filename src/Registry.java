@@ -5,7 +5,9 @@ public class Registry implements Serializable{
 	
 	public static ArrayList <Patient> Patients;
 	public static ArrayList <Doctor> Doctors;
-	private Admin  admin ;  
+	private static Admin  admin ;  
+	
+
 	private static String[] cities = {"Athens" , "Thessaloniki" , "Patra" };
 	
 	private static String[] specialities = {"Cardiology" , "Surgery" , "Pathology" , "Orthopedic"} ; 
@@ -18,7 +20,16 @@ public class Registry implements Serializable{
 		 Doctors= new ArrayList<>(); 
 	}
 
+	public Admin getAdmin() {
+		return admin;
+	}
 
+
+
+
+	public static void setAdmin(Admin user) {
+		admin = user;
+	}
 	
 	
 	public Object  authentication(String username, String password) {
