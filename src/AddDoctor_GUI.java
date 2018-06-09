@@ -114,7 +114,7 @@ public class AddDoctor_GUI extends JFrame{
 		
 		this.setVisible(true) ; 
 		this.setSize(300,600);
-		this.setTitle("LOGIN GUI");
+		this.setTitle("Add a Doctor");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//centre the window
 	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
