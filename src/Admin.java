@@ -75,6 +75,7 @@ public class Admin{
 	public void trasferDoctor(Doctor doc,Registry reg,String transfer_city) {
 		
 		doc.setCityName(transfer_city);
+		Serialization.SaveToFile(reg);
 			
 	}
 	
@@ -99,6 +100,7 @@ public class Admin{
 	
 			}
 		reg.Doctors.remove(doc) ; 
+		Serialization.SaveToFile(reg);
 		
 	}
 	

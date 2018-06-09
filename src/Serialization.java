@@ -14,9 +14,7 @@ public class Serialization {
 		catch(IOException i) {
 			i.printStackTrace();
 		}
-		finally {
-			
-		}
+		
 	}
 	
 	@SuppressWarnings("finally")

@@ -133,7 +133,7 @@ public class MakeReview_GUI extends JFrame {
 						&&doctorFullName!= null) {
 					Review rev = new Review(user.getAmka(), Cleanliness, StaffCo_operation, Dignity_and_respect, Involvement_in_decisions);
 					Doctor  doc = user.searchDocInList(doctorFullName);
-					doc.addReview(rev);
+					doc.addReview(rev,reg);
 					JOptionPane.showMessageDialog(panel, "Your review was recorded");
 				}else
 					JOptionPane.showMessageDialog(panel, "Select doctor  to continue");

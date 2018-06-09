@@ -269,12 +269,13 @@ public class Doctor implements Serializable{
    }
    
    //add review in reviewlist if  a  patient has reviewed already it just replace the new review with the old
-   public void addReview(Review rev)
+   public void addReview(Review rev,Registry reg)
    {
 	   boolean found = false ; 
+	   int i = 0 ; 
 	   for(Review r : reviewList)
 		   if(rev.getId().equals(r.getId())) {
-			   r.setId(rev.getId());
+			   r = rev ; 
 			   found = true ; 
 			   break; 
 		   }
@@ -287,6 +288,9 @@ public class Doctor implements Serializable{
 		   total_staff_cooperation=+rev.getStaffCo_operation();
 		   overall_rating+=rev.getGeneral_Rating();
 	   }
+	   
+	   
+	   Serialization.SaveToFile(reg);
    }
 
    public String toString () {

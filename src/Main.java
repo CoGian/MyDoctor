@@ -19,7 +19,7 @@ public class Main {
 		Doctor doctor3 = new Doctor ("45233345111","LOL@GMAIL.com","Xrhstos","adamou",43,false,"6982223333" , "0","Athens","Legs","Orthopedic");
 		Doctor doctor4 = new Doctor ("7634522111","LOL@GMAIL.com","Apostolis","Gianakopoulos",43,false,"6982223333" , "0","Thessaloniki","HeartAttack","Cardiology");
 		//patient.addDoctor(doctor);
-		doctor.addReview(new Review("1",1,2,3,4));
+		doctor.addReview(new Review("1",1,2,3,4),reg);
 		Serialization.SaveToFile(reg);
 		//new Patient_GUI(patient,reg);
 		//reg.Patients.add(patient);
