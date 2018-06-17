@@ -54,7 +54,7 @@ public class PatientInfo_GUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				new MakeAppointmentD(foundPatient,user,reg);
+				new MakeAppointmentD_GUI(foundPatient,user,reg);
 				dispose();
 			}
 	    	
