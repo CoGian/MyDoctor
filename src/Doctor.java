@@ -91,6 +91,10 @@ public class Doctor implements Serializable{
 	}
 
 
+	public void setVisits(int visits) {
+		this.visits = visits;
+	}
+
 	public String getMail() {
 		return mail;
 	}

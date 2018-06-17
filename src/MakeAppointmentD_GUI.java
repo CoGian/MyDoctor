@@ -123,6 +123,7 @@ public class MakeAppointmentD_GUI extends JFrame{
 						doctor.addAppointment(i+1,SelectedHour,appointment);
 						JOptionPane.showMessageDialog(makeAppointmentButton, "Your appointment has been scheduled on : " + date );	
 						patient.addDoctor(doctor);
+						doctor.setVisits(doctor.getVisits() + 1);
 						new PatientInfo_GUI(patient, doctor, reg);
 						dispose();
 					} catch (ParseException e) {

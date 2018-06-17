@@ -11,7 +11,7 @@ public class Auth_GUI extends JFrame implements ActionListener{
 	private JPanel RegisterPanel = new JPanel() ; 
 	
 	private JButton LoginButton = new JButton("Login");
-	private JButton RegisterButton = new JButton("Registry");
+	private JButton RegisterButton = new JButton("Register");
 	
 	
 	private JTextField UsernameLogField = new JTextField(20);
@@ -20,10 +20,11 @@ public class Auth_GUI extends JFrame implements ActionListener{
 	private JTextField UsernameRegField = new JTextField(20);
 	private JPasswordField PasswordRegField = new JPasswordField(20);
 	private JTextField NameField = new JTextField(20);
+	private JTextField SurnameField = new JTextField(20);
 	private JTextField TelephoneField = new JTextField(20);
 	private JTextField AddressField = new JTextField(20);
 	private JTextField EmailField = new JTextField(20);
-	private JTextField AgeField = new JTextField(20);
+	private JFormattedTextField AgeField = new JFormattedTextField(20);
 	
 	String [] genders = { "Male", "Female" };
 	private JComboBox<String> GenderField = new JComboBox<String>(genders);
@@ -52,16 +53,20 @@ public class Auth_GUI extends JFrame implements ActionListener{
 		RegisterPanel.add(UsernameRegField);
 		RegisterPanel.add(new JLabel("Password: "));
 		RegisterPanel.add(PasswordRegField);
-		RegisterPanel.add(new JLabel("Full Name: "));
+		RegisterPanel.add(new JLabel("Name: "));
 		RegisterPanel.add(NameField);
+		RegisterPanel.add(new JLabel("Surname: "));
+		RegisterPanel.add(SurnameField);
 		RegisterPanel.add(new JLabel("Address: "));
 		RegisterPanel.add(AddressField);
 		RegisterPanel.add(new JLabel("Telephone: "));
 		RegisterPanel.add(TelephoneField);
 		RegisterPanel.add(new JLabel("E-mail: "));
 		RegisterPanel.add(EmailField);
+		AgeField.setValue(0);
 		RegisterPanel.add(new JLabel("Age: "));
 		RegisterPanel.add(AgeField);
+		GenderField.setSelectedIndex(0);//Sets male as pre-selected gender
 		RegisterPanel.add(new JLabel("Gender: "));
 		RegisterPanel.add(GenderField);
 		RegisterPanel.add(Box.createRigidArea(new Dimension(0,10)));
@@ -117,7 +122,23 @@ public class Auth_GUI extends JFrame implements ActionListener{
 				JOptionPane.showMessageDialog(this.getContentPane(), "Wrong Username or Password");
 		}
 		else if(e.getSource().equals(RegisterButton)) {
-			
+			String username = UsernameRegField.getText();
+			String email = EmailField.getText();
+			String name = NameField.getText();
+			String surname = SurnameField.getText();
+			int age = (int) AgeField.getValue();
+			boolean gender = false; //Combo box has Male as a default selection
+			if(GenderField.getSelectedIndex() == 1)
+				gender = true;
+			String telephone = TelephoneField.getText();
+			String pass = PasswordRegField.getText();
+			if(username != "" && email != "" && name != "" && surname != "" && 
+					age > 0 && telephone != "" && pass != "") {
+				reg.Patients.add(new Patient(username, email, name, surname, age, gender, telephone, pass));
+				JOptionPane.showMessageDialog(this.getContentPane(), "User registered successfuly!");
+			}
+			else 
+				JOptionPane.showMessageDialog(this.getContentPane(), "Fill all the fields!");
 		}
 	}
 		
