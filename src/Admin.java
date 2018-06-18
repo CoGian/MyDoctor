@@ -20,7 +20,7 @@ public class Admin{
 		this.gender = gender;
 		this.telephone = telephone;
 		this.password = password;
-		Registry.setAdmin(this);
+		
 	}
 	public String getAmka() {
 		return username;

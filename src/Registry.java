@@ -5,7 +5,7 @@ public class Registry implements Serializable{
 	
 	public static ArrayList <Patient> Patients;
 	public static ArrayList <Doctor> Doctors;
-	private static Admin  admin ;  
+	public static Admin  admin ;  
 	
 
 	private static String[] cities = {"Athens" , "Thessaloniki" , "Patra" };
@@ -20,13 +20,7 @@ public class Registry implements Serializable{
 		 Doctors= new ArrayList<>(); 
 	}
 
-	public Admin getAdmin() {
-		return admin;
-	}
-
-
-
-
+	
 	public static void setAdmin(Admin user) {
 		admin = user;
 	}
@@ -49,10 +43,10 @@ public class Registry implements Serializable{
 				if(doc.getPassword().equals(password))
 					return doc ; 
 		}
-		
+		/*
 		if(admin.getAmka().equals(username)&&admin.getPassword().equals(password))
 			return admin ;
-		
+		*/
 		return null; 
 			
 		
