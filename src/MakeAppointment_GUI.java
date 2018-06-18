@@ -152,6 +152,9 @@ public class MakeAppointment_GUI extends JFrame{
 		
 		Make_AppointmentButton.addActionListener(new ActionListener() {
 
+			/* (non-Javadoc)
+			 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+			 */
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
@@ -182,6 +185,7 @@ public class MakeAppointment_GUI extends JFrame{
 						connected.AddAppointment(appointment);
 						connected.addDoctor(SelectedDoctor);
 						SelectedDoctor.addAppointment(i+1,SelectedHour,appointment);
+						Serialization.SaveToFile(reg);
 						JOptionPane.showMessageDialog(Make_AppointmentButton, "Your appointment has been scheduled on : " + date );	
 						new Patient_GUI(connected, reg);
 						dispose();

@@ -46,7 +46,7 @@ public class SeePrescriptions_GUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				doctors_list.removeAllItems();
+				panel1.removeAll();
 				for (int i = 0; i <RightDocs.size();i++) {
 					RightDocs.remove(i);
 				}
@@ -70,6 +70,7 @@ public class SeePrescriptions_GUI extends JFrame{
 				Doctor  SelectedDoctor = (Doctor) doctors_list.getSelectedItem();
 				String prescription = prescriptionList.get(SelectedDoctor);
 				panel1.add(new JLabel("Your prescription is : "+prescription));
+				doctors_list.removeAllItems();
 			}	
 		});
 		
