@@ -19,12 +19,11 @@ public class Registry implements Serializable{
 		 Patients= new ArrayList<>();  
 		 Doctors= new ArrayList<>(); 
 	}
-
+	
+	
 	public Admin getAdmin() {
 		return admin;
 	}
-
-
 
 
 	public static void setAdmin(Admin user) {
@@ -33,7 +32,6 @@ public class Registry implements Serializable{
 	
 	
 	public Object  authentication(String username, String password) {
-		
 		for(Patient patient : Patients)
 		{
 			if(patient.getAmka().equals(username))
@@ -52,7 +50,7 @@ public class Registry implements Serializable{
 		
 		if(admin.getAmka().equals(username)&&admin.getPassword().equals(password))
 			return admin ;
-		
+			
 		return null; 
 			
 		
