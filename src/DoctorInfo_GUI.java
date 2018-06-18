@@ -1,5 +1,6 @@
 	import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,7 +16,7 @@ public class DoctorInfo_GUI extends JFrame{
 		private JPanel InfoPanel = new JPanel();
 		private JButton BackButton = new JButton("Back");
 	
-	public DoctorInfo_GUI(Doctor doctor,Registry reg,Patient connected) {
+	public DoctorInfo_GUI(Doctor doctor,Registry reg,Object connected) {
 		
 		InfoPanel.setLayout(new GridLayout(13,1,10,10));
    	    
@@ -53,8 +54,10 @@ public class DoctorInfo_GUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				
-				new MakeAppointment_GUI(connected,reg);
+				if(connected instanceof Patient)
+					new MakeAppointment_GUI((Patient)connected,reg);
+				else 
+					new Admin_GUI((Admin)connected, reg) ; 
 				dispose();
 			}
 			
@@ -66,5 +69,10 @@ public class DoctorInfo_GUI extends JFrame{
 		this.setTitle("DOCTOR'S INFO GUI");
 		this.getContentPane().setLayout(new BoxLayout(InfoPanel, BoxLayout.Y_AXIS));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+	    int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+		int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+		this.setLocation(x, y);
+			
 	}
 }
