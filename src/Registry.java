@@ -19,18 +19,11 @@ public class Registry implements Serializable{
 		 Patients= new ArrayList<>();  
 		 Doctors= new ArrayList<>(); 
 	}
-<<<<<<< HEAD
-	
 	
 	public Admin getAdmin() {
 		return admin;
 	}
 
-
-=======
-
-	
->>>>>>> a091b1a118b9fb7b708ee35216091290b9f6dd63
 	public static void setAdmin(Admin user) {
 		admin = user;
 	}
@@ -52,14 +45,8 @@ public class Registry implements Serializable{
 				if(doc.getPassword().equals(password))
 					return doc ; 
 		}
-		/*
 		if(admin.getAmka().equals(username)&&admin.getPassword().equals(password))
 			return admin ;
-<<<<<<< HEAD
-			
-=======
-		*/
->>>>>>> a091b1a118b9fb7b708ee35216091290b9f6dd63
 		return null; 
 			
 		

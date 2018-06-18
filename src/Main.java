@@ -9,9 +9,10 @@ public class Main {
 	 
 	    Registry reg = new Registry() ; 
 	    reg = Serialization.ReadFromFile() ; 
-	    /*
-	    Admin admin = new  Admin("95199823442","giatros@gmail.com","GIORGOS","PAPADOPOULOS",25,false,"6982222611" , "2310644777") ;
-	    reg.admin = admin ; 
+	    
+	    Admin admin = new  Admin("admin","giatros@gmail.com","GIORGOS","PAPADOPOULOS",25,false,"6982222611" , "admin") ;
+	    reg.setAdmin(admin);
+	    /* reg.admin = admin ; 
 		Patient patient = new  Patient("231993221123","marinos@gmail.com","Marios","Marinos",23,false,"6989360354" , "paokmono") ;
 		Patient patient1 = new  Patient("41220092311","dimitris12@hotmail.com","Dhmhtrhs","Papadopoulos",29,false,"6325114471" , "M2222366") ;
 		Patient patient2 = new  Patient("221120001111","LOL@GMAIL","GIORGOS","PAPADOPOULOS",25,false,"6982222611" , "1423432") ;
