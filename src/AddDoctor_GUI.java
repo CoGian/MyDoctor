@@ -84,15 +84,24 @@ public class AddDoctor_GUI extends JFrame{
 				 if(amka!= null && amka.length() == 11 && mail != null && name != null &&
 						 age != null && surname != null && gender!= -1&&telephone != null&&password != null
 						 && cityName != null && tag != null && speciality != null){
-					 
+					   
+					  
 					  boolean gender1 ; 
 					  if(gender==1)
 						  gender1 = true ; 
 					  else 
 						  gender1 = false ; 
+					  
+					  try {
 					  int age1 = Integer.parseInt(age); 
 					  new Doctor(amka, mail, name, surname, age1, gender1, telephone, password, cityName, tag, speciality);
 				      JOptionPane.showMessageDialog(RegisterPanel, "Registration Completed");
+					  }catch (Exception e1) {
+						// TODO: handle exception
+						  JOptionPane.showMessageDialog(RegisterPanel, "Wrong Age Format!");
+					   }
+					  
+					  
 				 }
 				 else
 					 JOptionPane.showMessageDialog(RegisterPanel, "Completion Incorrect please check all the fields to continue!");
