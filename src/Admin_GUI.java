@@ -108,17 +108,13 @@ public class Admin_GUI extends JFrame{
 					String amka =  DoctorAMKAField.getText() ; 
 					Doctor doc = admin.searchDoctorByAMKA(amka, reg) ; 
 					if(doc!= null) {
-						
-						
-						
-						
-						
-					    dispose() ; 
+						new DoctorInfo_GUI(doc, reg, user) ; 
+						dispose() ; 
 					}
 					else
 						JOptionPane.showMessageDialog(panel, "Doctor not found");
 				
-					dispose() ; 
+					
 				}
 			});
 			
@@ -132,12 +128,12 @@ public class Admin_GUI extends JFrame{
 					if(doc!= null) {
 						
 						new StatisticsDoctorGUI(doc,reg,user);
-					
+						dispose() ; 
 					}
 					else
 						JOptionPane.showMessageDialog(panel, "Doctor not found");
 				
-					dispose() ; 
+					
 				}
 			});
 			
