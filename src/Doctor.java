@@ -260,7 +260,6 @@ public class Doctor implements Serializable{
 	   }
 	   dayAppointments[index] = appointment;
 	   this.appointmentMap.put(day, dayAppointments);
-   
    }
    
    public Patient searchPatientFromList(String amka)

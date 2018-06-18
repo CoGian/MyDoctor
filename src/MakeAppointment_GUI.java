@@ -110,7 +110,7 @@ public class MakeAppointment_GUI extends JFrame{
 		LocalDate localDate ;
 
 
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
 		for (int i = 0 ;i<10;i++) {
 			localDate = LocalDate.now().plusDays(i);
 			String formattedString = localDate.format(formatter);
@@ -180,9 +180,9 @@ public class MakeAppointment_GUI extends JFrame{
 						}
 						Appointment appointment = new Appointment(SelectedDoctor,connected,date);
 						connected.AddAppointment(appointment);
+						connected.addDoctor(SelectedDoctor);
 						SelectedDoctor.addAppointment(i+1,SelectedHour,appointment);
 						JOptionPane.showMessageDialog(Make_AppointmentButton, "Your appointment has been scheduled on : " + date );	
-						connected.addDoctor(SelectedDoctor);
 						new Patient_GUI(connected, reg);
 						dispose();
 					} catch (ParseException e) {
