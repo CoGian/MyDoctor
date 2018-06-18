@@ -135,6 +135,7 @@ public class Auth_GUI extends JFrame implements ActionListener{
 			if(username != "" && email != "" && name != "" && surname != "" && 
 					age > 0 && telephone != "" && pass != "") {
 				reg.Patients.add(new Patient(username, email, name, surname, age, gender, telephone, pass));
+				Serialization.SaveToFile(reg);
 				JOptionPane.showMessageDialog(this.getContentPane(), "User registered successfuly!");
 			}
 			else 

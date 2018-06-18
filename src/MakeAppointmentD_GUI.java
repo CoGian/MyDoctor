@@ -41,7 +41,7 @@ public class MakeAppointmentD_GUI extends JFrame{
 		
 		LocalDate localDate ;
 
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
 		for (int i = 0 ;i<30;i++) {
 			localDate = LocalDate.now().plusDays(i);
 			String formattedString = localDate.format(formatter);
@@ -121,10 +121,10 @@ public class MakeAppointmentD_GUI extends JFrame{
 						Appointment appointment = new Appointment(doctor,patient,date);
 						patient.AddAppointment(appointment);
 						doctor.addAppointment(i+1,SelectedHour,appointment);
-						Serialization.SaveToFile(reg); //save to file
 						JOptionPane.showMessageDialog(makeAppointmentButton, "Your appointment has been scheduled on : " + date );	
 						patient.addDoctor(doctor);
 						doctor.setVisits(doctor.getVisits() + 1);
+						Serialization.SaveToFile(reg); //save to file
 						new PatientInfo_GUI(patient, doctor, reg);
 						dispose();
 					} catch (ParseException e) {
