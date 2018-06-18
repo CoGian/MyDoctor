@@ -14,7 +14,7 @@ public class Patient_GUI extends JFrame {
 	private JButton MakeAppointmentButton = new JButton("Make Appointment") ; 
 	private JButton MyAppointmentsButton = new JButton("My Appointments") ; 
 	private JButton MakeReviewButton = new JButton("Make Review") ; 
-	private JButton SeeRescriptionsButton = new JButton("See Rescriptions") ; 
+	private JButton SeeRescriptionsButton = new JButton("See Prescriptions") ; 
 	private JButton ConfigureButton = new JButton("Configure" ) ; 
 	private JButton SignOutButton = new JButton("Sign out") ; 
 	
