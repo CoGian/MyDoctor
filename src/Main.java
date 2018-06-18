@@ -21,7 +21,7 @@ public class Main {
 		//patient.addDoctor(doctor);
 		doctor.addReview(new Review("1",1,2,3,4),reg);
 		Serialization.SaveToFile(reg);
-		//new Patient_GUI(patient,reg);
+		new Patient_GUI(patient,reg);
 		//reg.Patients.add(patient);
 		//Serialization.SaveToFile(reg);
 		//new MakeReview_GUI(patient, reg); 
@@ -30,7 +30,7 @@ public class Main {
         
 
  
-		//new Doctor_GUI(doctor, reg);
+		new Doctor_GUI(doctor, reg);
 
 		//new Admin_GUI(admin, reg) ; 
 

@@ -68,6 +68,7 @@ public class MyAppointments_GUI extends JFrame {
 					if (dialogResult == JOptionPane.YES_OPTION) {
 						Appointment SelectedAppointment = myApps.getSelectedValue();
 						connected.cancelAppointment(SelectedAppointment);
+						Serialization.SaveToFile(reg);
 						new Patient_GUI(connected,reg);
 						dispose();
 						}	
