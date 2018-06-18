@@ -52,6 +52,25 @@ public class Registry implements Serializable{
 		
 		
 	}	
+	
+	public boolean userExists(String username) {
+		for(Patient patient : Patients)
+		{
+			if(patient.getAmka().equals(username))
+				return true; 	
+		}
+		
+		
+
+		for(Doctor doc : Doctors)
+		{
+			if(doc.getAmka().equals(username))
+				return true ; 
+		}
+		if(admin.getAmka().equals(username))
+			return true ;
+		return false; 
+	}
 
 	public static  String[] getCities() {
 		return cities;

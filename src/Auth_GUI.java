@@ -132,14 +132,18 @@ public class Auth_GUI extends JFrame implements ActionListener{
 				gender = true;
 			String telephone = TelephoneField.getText();
 			String pass = PasswordRegField.getText();
-			if(username != "" && email != "" && name != "" && surname != "" && 
+			if(!reg.userExists(username)) {
+				if(username != "" && email != "" && name != "" && surname != "" && 
 					age > 0 && telephone != "" && pass != "") {
-				reg.Patients.add(new Patient(username, email, name, surname, age, gender, telephone, pass));
-				Serialization.SaveToFile(reg);
-				JOptionPane.showMessageDialog(this.getContentPane(), "User registered successfuly!");
+					reg.Patients.add(new Patient(username, email, name, surname, age, gender, telephone, pass));
+					Serialization.SaveToFile(reg);
+					JOptionPane.showMessageDialog(this.getContentPane(), "User registered successfuly!");
+				}
+				else 
+					JOptionPane.showMessageDialog(this.getContentPane(), "Fill all the fields!");
 			}
-			else 
-				JOptionPane.showMessageDialog(this.getContentPane(), "Fill all the fields!");
+			else
+				JOptionPane.showMessageDialog(this.getContentPane(), "User with this username already exists!");
 		}
 	}
 		
