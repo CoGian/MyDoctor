@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
-public class Appointment {
+public class Appointment implements Serializable{
 	private Doctor doctor;
 	private Patient patient;
 	private Date date;
