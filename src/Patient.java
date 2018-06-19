@@ -27,7 +27,7 @@ public class Patient implements Serializable{
 		this.gender = gender;
 		this.telephone = telephone;
 		this.password = password;
-		Registry.Patients.add(this);
+		
 	}
 
 	public String getAmka() {

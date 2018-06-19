@@ -55,7 +55,7 @@ public class Doctor implements Serializable{
 			Appointment[] tempAmp = new Appointment[20];
 			appointmentMap.put(i, tempAmp );
 		}
-		Registry.Doctors.add(this);
+		
 	}
 
 	public int getVisits() {

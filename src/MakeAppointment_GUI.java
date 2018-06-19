@@ -88,7 +88,7 @@ public class MakeAppointment_GUI extends JFrame{
 				for (Doctor doc : preferredDoctors)
 					if (doc.getSpeciality().equals(SelectedSpeciality) && doc.getCityName().equals(SelectedCity))
 						((DefaultListModel<Doctor>) DDoctors).addElement(doc);
-				ArrayList<Doctor> ArrayListDocs = Registry.searchDoctor(SelectedCity,SelectedSpeciality,SelectedTag);
+				ArrayList<Doctor> ArrayListDocs = reg.searchDoctor(SelectedCity,SelectedSpeciality,SelectedTag);
 				for (Doctor  doc : ArrayListDocs ) {
 					if (!preferredDoctors.contains(doc))
 						((DefaultListModel<Doctor>) DDoctors).addElement(doc);

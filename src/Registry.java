@@ -3,9 +3,9 @@ import java.util.ArrayList;
 
 public class Registry implements Serializable{
 	
-	public static ArrayList <Patient> Patients;
-	public static ArrayList <Doctor> Doctors;
-	public static Admin  admin ;  
+	public  ArrayList <Patient> Patients;
+	public  ArrayList <Doctor> Doctors;
+	public Admin  admin ;  
 	
 
 	private static String[] cities = {"Athens" , "Thessaloniki" , "Patra" };
@@ -24,7 +24,7 @@ public class Registry implements Serializable{
 		return admin;
 	}
 
-	public static void setAdmin(Admin user) {
+	public void setAdmin(Admin user) {
 		admin = user;
 	}
 	
@@ -86,7 +86,7 @@ public class Registry implements Serializable{
 		return appointmenthours;
 	}
 
-	public static ArrayList<Doctor> searchDoctor(String city, String speciality ,  String tag){
+	public  ArrayList<Doctor> searchDoctor(String city, String speciality ,  String tag){
 		ArrayList<Doctor> AvailableDocs = new ArrayList<Doctor>();
 		ArrayList<Doctor> TagDocs = new ArrayList<Doctor>();
 		for (int i=0;i<Doctors.size();i++) {
@@ -104,7 +104,7 @@ public class Registry implements Serializable{
 		return  TagDocs;
 	}
 	
-	public static Patient searchPatient(String amka) {
+	public  Patient searchPatient(String amka) {
 		for(Patient p: Patients) {
 			if (p.getAmka().equals(amka)) return p;
 		}
