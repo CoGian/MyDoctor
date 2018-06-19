@@ -18,7 +18,7 @@ public class DoctorInfo_GUI extends JFrame{
 	
 	public DoctorInfo_GUI(Doctor doctor,Registry reg,Object connected) {
 		
-		InfoPanel.setLayout(new GridLayout(13,1,10,10));
+		InfoPanel.setLayout(new GridLayout(14,1,10,10));
    	    
 		
 	    InfoPanel.add(new JLabel("Doctor's Info")) ; 
@@ -46,6 +46,7 @@ public class DoctorInfo_GUI extends JFrame{
 		InfoPanel.add(Box.createRigidArea(new Dimension (0,20)));
 		InfoPanel.add(new JLabel ("Tag : "  + doctor.getTag()));
 		InfoPanel.add(Box.createRigidArea(new Dimension (0,20)));
+		InfoPanel.add(new JLabel("Average Rating :" +doctor.getOverall_rating()/doctor.getReviewList().size())); 
 		
 		InfoPanel.add(BackButton);
 		
