@@ -1,5 +1,7 @@
 import java.io.Serializable;
 
+import javax.swing.JFrame;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -7,21 +9,26 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
-import org.jfree.ui.RefineryUtilities;
 
 
 public class Statistics implements Serializable {
 	
 	private Registry reg;
 	
-	public void showStatistics(Registry aRegistry,String use) {
+	public Statistics(Registry aRegistry) {
+		// TODO Auto-generated constructor stub
+	this.reg=aRegistry;
 		
-		this.reg=aRegistry;
-		
-		BarChart_AWT chart = new BarChart_AWT("Doctor's Statistics", "Review Summary",use);
-		chart.pack();        
-		RefineryUtilities.centerFrameOnScreen(chart);        
-		chart.setVisible(true); 
+		BarChart_AWT chart1 = new BarChart_AWT("Statistics", "Visits per City","City");
+		BarChart_AWT chart2 = new BarChart_AWT("Statistics", "Visits per Speciality","Speciality");
+		chart1.pack();
+		chart2.pack();        
+
+		     
+		chart1.setVisible(true);
+		chart1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		chart2.setVisible(true);
+		chart2.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	}
 
 	public class BarChart_AWT extends ApplicationFrame {

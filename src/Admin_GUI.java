@@ -15,6 +15,8 @@ public class Admin_GUI extends JFrame{
 		private JButton ConfigureButton = new JButton("Configure" ) ; 
 		private JButton SignOutButton = new JButton("Sign out") ; 
 		
+		private JButton Company_StatisticsButton = new JButton("Company Statistics");
+		
 		private JTextField DoctorAMKAField  ; 
 		private JTextField EmailField  ; 
 		private JPasswordField PasswordField  ; 
@@ -42,7 +44,7 @@ public class Admin_GUI extends JFrame{
 			ButtonPanel.add(StatisticsButton);
 			ButtonPanel.add(AddADoctorButton);
 			ButtonPanel.add(SignOutButton);
-			ButtonPanel.add(new JLabel("  "));
+			ButtonPanel.add(Company_StatisticsButton);
 		 
 			//sets JFields 
 			EmailField = new JTextField(user.getMail(),20);
@@ -128,12 +130,21 @@ public class Admin_GUI extends JFrame{
 					if(doc!= null) {
 						
 						new StatisticsDoctorGUI(doc,reg,user);
-						dispose() ; 
+						
 					}
 					else
 						JOptionPane.showMessageDialog(panel, "Doctor not found");
 				
 					
+				}
+			});
+			
+			Company_StatisticsButton.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					new Statistics(reg);
 				}
 			});
 			
