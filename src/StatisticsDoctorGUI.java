@@ -29,6 +29,9 @@ public class StatisticsDoctorGUI extends JFrame {
 		total_involvement=aDoctor.getTotal_involvement();
 		total_staff_cooperation=aDoctor.getTotal_staff_cooperation();
 		int_general_rating=aDoctor.getOverall_rating();
+		
+		 setDefaultCloseOperation(HIDE_ON_CLOSE);
+		 
 		 if(aDoctor.getReviewList().isEmpty() ) {
 			   JOptionPane.showMessageDialog(new JPanel(), "This doctor has not been reviewed yet.");
 			   new Admin_GUI(admin,reg);
@@ -39,6 +42,7 @@ public class StatisticsDoctorGUI extends JFrame {
 		RefineryUtilities.centerFrameOnScreen(chart);        
 		chart.setVisible(true); 
 		 }
+		
  
 	}
 		public class BarChart_AWT extends ApplicationFrame {

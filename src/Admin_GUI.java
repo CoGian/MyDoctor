@@ -128,7 +128,7 @@ public class Admin_GUI extends JFrame{
 					if(doc!= null) {
 						
 						new StatisticsDoctorGUI(doc,reg,user);
-						dispose() ; 
+						
 					}
 					else
 						JOptionPane.showMessageDialog(panel, "Doctor not found");
