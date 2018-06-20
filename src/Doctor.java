@@ -220,6 +220,16 @@ public class Doctor implements Serializable{
 	   return AvailableHours;
    }
    
+   public ArrayList<String> showAppointedHours(int SelectedDate) { //returns dates with made appointments
+	   ArrayList<String> hours = new ArrayList<String>();
+	   Appointment[] appoint = appointmentMap.get(SelectedDate);
+	   for (int i = 0 ;i<20;i++) {
+		   if (appoint[i]!=null)
+			   hours.add(Registry.getAppointmenthours(i));
+	   }
+	   return hours;
+   }
+   
    public void removeAppointment(String id) {
 	   boolean flag = false;
 	   int i = 1 ;
@@ -241,6 +251,14 @@ public class Doctor implements Serializable{
 		   i++;
 	   }
    }
+   
+   public void cancelAppointment(int dayIndex, int hourIndex) { //from doctor's gui
+	   Appointment[] selectedDayApps = appointmentMap.get(dayIndex);
+	   Appointment app = selectedDayApps[hourIndex];
+	   app.getPatient().cancelAppointment(app);
+	   this.setVisits(getVisits()-1);
+   }
+   
    public void addPatient(Patient aPatient) {
 	   
 	   if(patientMap.containsKey(aPatient)){
