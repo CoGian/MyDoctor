@@ -35,10 +35,6 @@ public class Patient implements Serializable{
 		return amka;
 	}
 
-	public void setAmka(String amka) {
-		this.amka = amka;
-	}
-
 	public String getMail() {
 		return mail;
 	}
@@ -51,32 +47,16 @@ public class Patient implements Serializable{
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getSurname() {
 		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
 	}
 
 	public int getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
-	}
-
 	public boolean isGender() {
 		return gender;
-	}
-
-	public void setGender(boolean gender) {
-		this.gender = gender;
 	}
 
 	public String getTelephone() {
@@ -126,7 +106,9 @@ public class Patient implements Serializable{
 	}
     
     public void configureInfo(String newPassword,String newEmail,String newTelephone) {
-    	
+    	this.setPassword(newPassword);
+		this.setMail(newEmail);
+		this.setTelephone(newTelephone);
     }
 	
     public String showPrescription(String selectedPrescription) {

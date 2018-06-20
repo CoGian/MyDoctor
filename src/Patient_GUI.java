@@ -127,9 +127,7 @@ public class Patient_GUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				user.setPassword(PasswordField.getText());
-				user.setMail(EmailField.getText());
-				user.setTelephone(TelephoneField.getText());
+				user.configureInfo(PasswordField.getText(), EmailField.getText(), TelephoneField.getText());
 				JOptionPane.showMessageDialog(panel,"Saved" );
 				
 			}

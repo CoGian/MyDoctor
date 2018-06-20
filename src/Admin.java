@@ -29,9 +29,7 @@ public class Admin implements Serializable{
 	public String getAmka() {
 		return username;
 	}
-	public void setAmka(String amka) {
-		this.username = amka;
-	}
+	
 	public String getMail() {
 		return mail;
 	}
@@ -41,27 +39,19 @@ public class Admin implements Serializable{
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	public String getSurname() {
 		return surname;
 	}
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
+	
 	public int getAge() {
 		return age;
 	}
-	public void setAge(int age) {
-		this.age = age;
-	}
+	
 	public boolean isGender() {
 		return gender;
 	}
-	public void setGender(boolean gender) {
-		this.gender = gender;
-	}
+	
 	public String getTelephone() {
 		return telephone;
 	}

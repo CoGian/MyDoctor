@@ -105,7 +105,8 @@ public class Doctor_GUI extends JFrame{
 				user.setPassword(PasswordField.getText());
 				user.setMail(EmailField.getText());
 				user.setTelephone(TelephoneField.getText());
-				JOptionPane.showMessageDialog(panel,"Saved" );
+				user.configureInfo(PasswordField.getText(), EmailField.getText(), TelephoneField.getText());
+				JOptionPane.showMessageDialog(panel,"Info Saved!" );
 			}
 		});
     	

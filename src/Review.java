@@ -21,44 +21,6 @@ public class Review implements Serializable{
 		General_Rating = (cleanliness +staffCo_operation +dignity_and_respect + involvement_in_decisions) / 4;
 	}
 
-
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-
-
-	public void setCleanliness(int cleanliness) {
-		Cleanliness = cleanliness;
-	}
-
-
-
-	public void setStaffCo_operation(int staffCo_operation) {
-		StaffCo_operation = staffCo_operation;
-	}
-
-
-
-	public void setDignity_and_respect(int dignity_and_respect) {
-		Dignity_and_respect = dignity_and_respect;
-	}
-
-
-
-	public void setInvolvement_in_decisions(int involvement_in_decisions) {
-		Involvement_in_decisions = involvement_in_decisions;
-	}
-
-
-
-	public void setGeneral_Rating(float general_Rating) {
-		General_Rating =  general_Rating;
-	}
-
-
-
 	public String getId() {
 		return id;
 	}

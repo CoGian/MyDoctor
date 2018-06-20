@@ -87,12 +87,6 @@ public class Doctor implements Serializable{
 		return amka;
 	}
 
-
-	public void setAmka(String amka) {
-		this.amka = amka;
-	}
-
-
 	public void setVisits(int visits) {
 		this.visits = visits;
 	}
@@ -111,41 +105,17 @@ public class Doctor implements Serializable{
 		return name;
 	}
 
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
 	public String getSurname() {
 		return surname;
 	}
 
-
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-
-
 	public int getAge() {
 		return age;
 	}
-
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
-
+	
 	public boolean isGender() {
 		return gender;
 	}
-
-
-	public void setGender(boolean gender) {
-		this.gender = gender;
-	}
-
 
 	public String getTelephone() {
 		return telephone;
@@ -198,17 +168,12 @@ public class Doctor implements Serializable{
 	public float getOverall_rating() {
 		return overall_rating;
 	}
-
-	public void makeAppointment(Patient aPatient , Date aDate) {
-		
-	}
-	
-   public void cancelAppointment(Date selectedDate) {
-		
-	}
    
    public void configureInfo(String newPassword,String newEmail,String newTelephone) {
-   	
+	   this.setPassword(newPassword);
+	   this.setMail(newEmail);
+	   this.setTelephone(newTelephone);
+
    }
    
    public ArrayList<String> showHours(int SelectedDate) {

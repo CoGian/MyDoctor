@@ -17,24 +17,17 @@ public class Appointment implements Serializable{
 	public Doctor getDoctor() {
 		return doctor;
 	}
-	public void setDoctor(Doctor doctor) {
-		this.doctor = doctor;
-	}
 	public Patient getPatient() {
 		return patient;
 	}
-	public void setPatient(Patient patient) {
-		this.patient = patient;
-	}
+	
 	public Date getDate() {
 		return date;
 	}
 	public String getId() {
 		return id ;
 	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
+	
 	public String toString() {
 		return date + " " + doctor.getName() + " " + doctor.getSurname();
 	}
