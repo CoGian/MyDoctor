@@ -95,10 +95,11 @@ public class AddDoctor_GUI extends JFrame{
 					  try {
 					  int age1 = Integer.parseInt(age); 
 					  Doctor doc = new Doctor(amka, mail, name, surname, age1, gender1, telephone, password, cityName, tag, speciality) ; 
-					  if(!reg.Doctors.contains(doc)) {
+					  if(!reg.userExists(doc.getAmka())) {
 						  reg.Doctors.add(doc );
 						  JOptionPane.showMessageDialog(RegisterPanel, "Registration Completed");
-					      Serialization.SaveToFile(reg);					  
+					      Serialization.SaveToFile(reg);			
+					      
 					  }						  
 					  else 
 						  JOptionPane.showMessageDialog(RegisterPanel, "Doctor already exists!");				  
