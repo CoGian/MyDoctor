@@ -81,6 +81,7 @@ public class CancelAppointmentD_GUI extends JFrame{
 				int SelectedDay = daysList.getSelectedIndex();
 				int SelectedHour = hoursList.getSelectedIndex();
 				user.cancelAppointment(SelectedDay, SelectedHour);
+				JOptionPane.showMessageDialog(cancelAppointmentButton, "Appointment canceled!");
 				Serialization.SaveToFile(reg);
 			}
 		});

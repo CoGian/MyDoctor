@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 
+import javax.swing.JOptionPane;
+
 
 public class Doctor implements Serializable{
 	
@@ -253,11 +255,14 @@ public class Doctor implements Serializable{
    }
    
    public void cancelAppointment(int dayIndex, int hourIndex) { //from doctor's gui
-	   Appointment[] selectedDayApps = appointmentMap.get(dayIndex);
+	   Appointment[] selectedDayApps = appointmentMap.get(dayIndex + 1);
 	   Appointment app = selectedDayApps[hourIndex];
-	   app.getPatient().cancelAppointment(app);
-	   this.setVisits(getVisits()-1);
-   }
+	   if(app != null) {
+		   Patient temp = app.getPatient();
+		   temp.cancelAppointment(app);
+		   this.setVisits(getVisits()-1);
+	   }
+	}
    
    public void addPatient(Patient aPatient) {
 	   
