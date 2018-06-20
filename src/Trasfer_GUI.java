@@ -23,16 +23,17 @@ public class Trasfer_GUI extends JFrame {
 	
 	public Trasfer_GUI(Doctor doc,Admin user,Registry reg)
 	{
-	
+	    listpanel.setLayout(new GridLayout(3,1,0,30));
 		listpanel.add(new JLabel("Select a city to Transfer:")) ; 
 		CitiesJList.setModel(CCities);
 		
-		for(int i =0 ; i<reg.getCities().length ; i++) {
-			if(reg.getCities()[i]!=doc.getCityName()) {
-				CCities.addElement(reg.getCities()[i]);
+		for(int i =0 ; i<Registry.getCities().length ; i++) {
+			if(!Registry.getCities()[i].equals(doc.getCityName())) {
+				CCities.addElement(Registry.getCities()[i]);
 			}
 		}
 		CitiesPane = new JScrollPane(CitiesJList);
+		CitiesPane.setSize(new Dimension(30, 50));
 		listpanel.add(CitiesPane);
 		
 		buttonpanel.add(confirmButton) ; 
@@ -52,6 +53,15 @@ public class Trasfer_GUI extends JFrame {
 				{
 					user.trasferDoctor(doc, reg, city) ; 
 					JOptionPane.showMessageDialog(panel ,"Transfer Completed! \n Doctor's new city is the selected city:" + city);
+					CCities.removeAllElements();
+
+					for(int i =0 ; i<Registry.getCities().length ; i++) {
+						if(!Registry.getCities()[i].equals(doc.getCityName())) {
+							CCities.addElement(Registry.getCities()[i]);
+						}
+					}
+					
+					
 				}
 				else
 					JOptionPane.showMessageDialog(panel ,"Choose a city" );
