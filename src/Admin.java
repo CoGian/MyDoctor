@@ -1,4 +1,7 @@
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class Admin implements Serializable{
 
@@ -95,8 +98,7 @@ public class Admin implements Serializable{
 	//deletes doctor from all possible saved positions 
 	public void deleteDoctor(Doctor doc,Registry reg)
 	{
-		for(Patient key: doc.getPatientMap().keySet())
-			{
+		for(Patient key: doc.getPatientMap().keySet()){
 			   key.deleteDoctor(doc);
 	
 			}

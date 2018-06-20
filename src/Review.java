@@ -7,7 +7,7 @@ public class Review implements Serializable{
 	private int StaffCo_operation ; 
 	private int Dignity_and_respect ; 
     private int Involvement_in_decisions ; 
-    private double General_Rating ; 
+    private float General_Rating ; 
     
   
 
@@ -53,8 +53,8 @@ public class Review implements Serializable{
 
 
 
-	public void setGeneral_Rating(double general_Rating) {
-		General_Rating = general_Rating;
+	public void setGeneral_Rating(float general_Rating) {
+		General_Rating =  general_Rating;
 	}
 
 

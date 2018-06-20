@@ -2,6 +2,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class Patient implements Serializable{
 	private String amka;
@@ -145,9 +146,12 @@ public class Patient implements Serializable{
     public void deleteDoctor(Doctor aDoctor){
     	doctorsList.remove(aDoctor);
     	
-    	for(Appointment a : appointmentList)
-    		if(a.getDoctor().equals(aDoctor))
-    			appointmentList.remove(a) ; 
+    	for (Iterator<Appointment> iterator =  appointmentList.iterator(); iterator.hasNext(); ) {
+    	    Appointment value = iterator.next();
+    	    if (value.getDoctor().equals(aDoctor)) {
+    	        iterator.remove();
+    	    }
+    	}
     	
     }
     

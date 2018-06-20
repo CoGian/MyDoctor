@@ -243,6 +243,12 @@ public class Doctor implements Serializable{
    }
    public void addPatient(Patient aPatient) {
 	   
+	   if(patientMap.containsKey(aPatient)){
+		   patientMap.put(aPatient, patientMap.get(aPatient)+1) ;
+	   }
+	   else {
+		   patientMap.put(aPatient,30) ; 
+	   }
    }
    
    

@@ -149,7 +149,7 @@ public class Admin_GUI extends JFrame{
 						Object[] options = {"Yes, please",
 			                    "No, thanks"};
 						int n = JOptionPane.showOptionDialog(panel,
-								"Are you sure?", "Do you want to delete " + doc.getName() +
+								"Are you sure?", "Do you want to delete " + doc.getName() +" "+
 								doc.getSurname(),JOptionPane.YES_NO_CANCEL_OPTION,
 								JOptionPane.QUESTION_MESSAGE,null,options,  options[1]);
 						if(n==0){
