@@ -94,10 +94,17 @@ public class AddDoctor_GUI extends JFrame{
 					  
 					  try {
 					  int age1 = Integer.parseInt(age); 
-					
-				      reg.Doctors.add( new Doctor(amka, mail, name, surname, age1, gender1, telephone, password, cityName, tag, speciality));
-					  JOptionPane.showMessageDialog(RegisterPanel, "Registration Completed");
-				      Serialization.SaveToFile(reg);
+					  Doctor doc = new Doctor(amka, mail, name, surname, age1, gender1, telephone, password, cityName, tag, speciality) ; 
+					  if(!reg.Doctors.contains(doc)) {
+						  reg.Doctors.add(doc );
+						  JOptionPane.showMessageDialog(RegisterPanel, "Registration Completed");
+					      Serialization.SaveToFile(reg);					  
+					  }						  
+					  else 
+						  JOptionPane.showMessageDialog(RegisterPanel, "Doctor already exists!");				  
+					  
+						  
+					  
 					  }catch (Exception e1) {
 						// TODO: handle exception
 						  JOptionPane.showMessageDialog(RegisterPanel, "Wrong Age Format!");
