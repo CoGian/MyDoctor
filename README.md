@@ -3,7 +3,8 @@ MyDoctor is a Java project that helps in the operation of hospitals ,specificall
 
 If you want the executable to work properly  you must download file Registry.ser
 
-Preloaded User: 
+Preloaded Users: 
+
 Admin
 Username:admin
 Password:admin 
