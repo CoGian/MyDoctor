@@ -60,7 +60,7 @@ public class Admin_GUI extends JFrame{
 		    InfoPanel.add(new JLabel("User's Info")) ; 
 		    InfoPanel.add(new JLabel("Name:" + user.getName()));
 		    InfoPanel.add(new JLabel("Surname: " + user.getSurname()));
-		    InfoPanel.add(new JLabel("AMKA: " + user.getAmka()));
+		    InfoPanel.add(new JLabel("Username: " + user.getAmka()));
 		    InfoPanel.add(new JLabel("Email: "));
 		    InfoPanel.add(EmailField);
 		    InfoPanel.add(new JLabel("Password: "));
@@ -156,7 +156,7 @@ public class Admin_GUI extends JFrame{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
-					new Statistics(reg,admin,"Specialuty");
+					new Statistics(reg,admin,"Speciality");
 				}
 			});
 			

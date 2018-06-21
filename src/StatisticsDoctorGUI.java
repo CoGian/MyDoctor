@@ -47,7 +47,7 @@ public class StatisticsDoctorGUI extends JFrame {
 		 
 		 if(aDoctor.getReviewList().isEmpty() ) {
 			   JOptionPane.showMessageDialog(new JPanel(), "This doctor has not been reviewed yet.");
-			   new Admin_GUI(admin,reg);
+			   
 		   }
 		 else {
 		BarChart_AWT chart = new BarChart_AWT("Doctor's Statistics", "Review Summary");
