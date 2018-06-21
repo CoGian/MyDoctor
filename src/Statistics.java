@@ -1,10 +1,17 @@
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.Serializable;
+import java.nio.channels.NetworkChannel;
 
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.block.CenterArrangement;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -14,21 +21,20 @@ import org.jfree.ui.ApplicationFrame;
 public class Statistics implements Serializable {
 	
 	private Registry reg;
-	
-	public Statistics(Registry aRegistry) {
-		// TODO Auto-generated constructor stub
-	this.reg=aRegistry;
-		
-		BarChart_AWT chart1 = new BarChart_AWT("Statistics", "Visits per City","City");
-		BarChart_AWT chart2 = new BarChart_AWT("Statistics", "Visits per Speciality","Speciality");
-		chart1.pack();
-		chart2.pack();        
+	private Admin admin;
+	private JButton backButton = new JButton("Back");
 
-		     
-		chart1.setVisible(true);
-		chart1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		chart2.setVisible(true);
-		chart2.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+	
+	
+	public Statistics(Registry aRegistry,Admin admin, String use) {
+		// TODO Auto-generated constructor stub
+		this.reg=aRegistry;
+		this.admin=admin;
+		
+		BarChart_AWT chart = new BarChart_AWT("Statistics", "Visits per City", use);
+	
+		chart.pack();      	
+		chart.setVisible(true);
 	}
 
 	public class BarChart_AWT extends ApplicationFrame {
@@ -37,11 +43,28 @@ public class Statistics implements Serializable {
 			super( applicationTitle );        
 			JFreeChart barChart = ChartFactory.createBarChart(chartTitle,"Category","Visits",createDataset(use),
 					PlotOrientation.VERTICAL,true, true, false);
-			ChartPanel chartPanel = new ChartPanel( barChart );        
-			chartPanel.setPreferredSize(new java.awt.Dimension( 560 , 367 ) );        
+			ChartPanel chartPanel = new ChartPanel( barChart );
+			chartPanel.setPreferredSize(new java.awt.Dimension( 560 , 367 ) );   
+			chartPanel.setLayout(new BoxLayout(chartPanel, BoxLayout.PAGE_AXIS));
+			
 			setContentPane( chartPanel ); 
+			chartPanel.add(backButton);
+			
+			
+			backButton.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+		
+					dispose();
+				}
+			});
+			
 		}
 
+		
+		
 		private CategoryDataset createDataset(String use) {
 			
 			

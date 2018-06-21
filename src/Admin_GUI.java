@@ -15,7 +15,8 @@ public class Admin_GUI extends JFrame{
 		private JButton ConfigureButton = new JButton("Configure" ) ; 
 		private JButton SignOutButton = new JButton("Sign out") ; 
 		
-		private JButton Company_StatisticsButton = new JButton("Company Statistics");
+		private JButton City_StatisticsButton = new JButton("Statistics per City");
+		private JButton Speciality_StatisticsButton = new JButton("Statistics per Speciality");
 		
 		private JTextField DoctorAMKAField  ; 
 		private JTextField EmailField  ; 
@@ -43,8 +44,10 @@ public class Admin_GUI extends JFrame{
 			ButtonPanel.add(InformationButton);
 			ButtonPanel.add(StatisticsButton);
 			ButtonPanel.add(AddADoctorButton);
+			ButtonPanel.add(City_StatisticsButton);
+			ButtonPanel.add(Speciality_StatisticsButton);
 			ButtonPanel.add(SignOutButton);
-			ButtonPanel.add(Company_StatisticsButton);
+			
 		 
 			//sets JFields 
 			EmailField = new JTextField(user.getMail(),20);
@@ -139,14 +142,24 @@ public class Admin_GUI extends JFrame{
 				}
 			});
 			
-			Company_StatisticsButton.addActionListener(new ActionListener() {
+			City_StatisticsButton.addActionListener(new ActionListener() {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
-					new Statistics(reg);
+					new Statistics(reg,admin,"City");
 				}
 			});
+			
+			Speciality_StatisticsButton.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					new Statistics(reg,admin,"Specialuty");
+				}
+			});
+			
 			
 			DeleteButton.addActionListener(new ActionListener() {
 				

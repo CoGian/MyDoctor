@@ -1,3 +1,8 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -20,8 +25,16 @@ public class StatisticsDoctorGUI extends JFrame {
 	private float total_involvement;
 	private float int_general_rating;
 	
+	private JButton backButton = new JButton("Back");
+
+	private Registry reg;
+	private Admin admin;
 	
 	public StatisticsDoctorGUI(Doctor aDoctor,Registry reg,Admin admin) {
+		
+		
+		this.reg=reg;
+		this.admin=admin;
 		
 		this.aDoctor = aDoctor;
 		total_cleanliness=aDoctor.getTotal_cleanliness();
@@ -54,8 +67,20 @@ public class StatisticsDoctorGUI extends JFrame {
 				JFreeChart barChart = ChartFactory.createBarChart(chartTitle,"Category","Score",createDataset(),
 						PlotOrientation.VERTICAL,true, true, false);
 				ChartPanel chartPanel = new ChartPanel( barChart );        
-				chartPanel.setPreferredSize(new java.awt.Dimension( 560 , 367 ) );        
+				chartPanel.setPreferredSize(new java.awt.Dimension( 560 , 367 ) );      
+				chartPanel.setLayout(new BoxLayout(chartPanel, BoxLayout.PAGE_AXIS));
 				setContentPane( chartPanel ); 
+				chartPanel.add(backButton);
+
+				backButton.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						
+						dispose();
+					}
+				});
 			}
    
    private CategoryDataset createDataset( ) {
